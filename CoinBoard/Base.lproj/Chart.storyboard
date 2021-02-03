@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I2p-PA-lxs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,23 +14,102 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ChartListViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-AD-pzx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-Su-fxO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="BUl-Ks-NKz"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="10" id="HGc-FQ-hqR">
+                                            <size key="itemSize" width="400" height="300"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCardCell" id="BfB-bv-UTd" customClass="ChartCardCell" customModule="CoinBoard" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="0.0" width="400" height="300"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QC1-42-NJP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Vzo-m7-gIQ"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="fhZ-1g-02t"/>
+                                        </connections>
+                                    </collectionView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-mm-paW">
+                                        <rect key="frame" x="0.0" y="320" width="414" height="900"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="900" id="s00-fa-Rl0"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChartListCell" id="FJ2-qh-0cI" customClass="ChartListCell" customModule="CoinBoard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJ2-qh-0cI" id="wZO-aW-VXR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="KhO-Gu-Iei"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="n4u-V2-mem"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ghJ-Su-fxO" firstAttribute="leading" secondItem="RH8-AD-pzx" secondAttribute="leading" id="5uv-2S-fZo"/>
+                                    <constraint firstAttribute="trailing" secondItem="7K6-mm-paW" secondAttribute="trailing" id="9q5-SZ-KcG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ghJ-Su-fxO" secondAttribute="trailing" id="Dll-5b-y8I"/>
+                                    <constraint firstItem="ghJ-Su-fxO" firstAttribute="top" secondItem="RH8-AD-pzx" secondAttribute="top" id="U2l-4R-tW0"/>
+                                    <constraint firstItem="7K6-mm-paW" firstAttribute="top" secondItem="ghJ-Su-fxO" secondAttribute="bottom" constant="20" id="lYl-jW-DsU"/>
+                                    <constraint firstItem="7K6-mm-paW" firstAttribute="leading" secondItem="RH8-AD-pzx" secondAttribute="leading" id="qeC-Ad-Nia"/>
+                                    <constraint firstItem="ghJ-Su-fxO" firstAttribute="width" secondItem="RH8-AD-pzx" secondAttribute="width" id="rsY-qz-071"/>
+                                    <constraint firstAttribute="bottom" secondItem="7K6-mm-paW" secondAttribute="bottom" id="y48-Bh-sWi"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lgs-dR-p8m"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Zni-pg-Veu"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RH8-AD-pzx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IpX-Dr-MeK"/>
+                            <constraint firstItem="RH8-AD-pzx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Naw-rV-tcw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RH8-AD-pzx" secondAttribute="bottom" id="gU7-vh-iUr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RH8-AD-pzx" secondAttribute="trailing" id="jOP-Ud-M7O"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coin Board" id="9Wf-iw-SLo"/>
+                    <connections>
+                        <outlet property="chartCollectionView" destination="ghJ-Su-fxO" id="Or8-GZ-OOB"/>
+                        <outlet property="chartTableView" destination="7K6-mm-paW" id="8hy-PS-coc"/>
+                        <outlet property="chartTableViewHeight" destination="s00-fa-Rl0" id="pUA-Y7-VpO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1739" y="1719"/>
+            <point key="canvasLocation" x="-1739.1304347826087" y="1718.9732142857142"/>
         </scene>
         <!--Chart Detail View Controller-->
         <scene sceneID="OAu-KS-2AQ">
             <objects>
-                <viewController id="CVc-vW-Cj0" customClass="ChartDetailViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartDetailViewController" id="CVc-vW-Cj0" customClass="ChartDetailViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SYR-9Y-ZLv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="RMU-ce-jbf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,6 +143,9 @@
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
