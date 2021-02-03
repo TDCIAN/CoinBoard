@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,12 +20,47 @@
                     <connections>
                         <segue destination="KWC-M8-Lle" kind="relationship" relationship="viewControllers" id="5d0-Or-UIB"/>
                         <segue destination="4P6-Jm-nrU" kind="relationship" relationship="viewControllers" id="nDd-Ex-Dt0"/>
-                        <segue destination="cae-d6-f9g" kind="relationship" relationship="viewControllers" id="TmD-S7-EgZ"/>
+                        <segue destination="eQ9-s4-Pay" kind="relationship" relationship="viewControllers" id="TmD-S7-EgZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch2-X5-ZMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="6hT-Fj-KYv">
+            <objects>
+                <viewController title="Setting" id="OnW-ML-NQP" customClass="SettingViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQ2-YN-jPe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UUK-Mu-j6S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="System Setting" id="eVt-8S-7VM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uT8-Dl-6hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919" y="1719"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="B1t-Gb-QPe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eQ9-s4-Pay" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="MyE-U7-RYN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VCm-Ng-cmm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OnW-ML-NQP" kind="relationship" relationship="rootViewController" id="KYe-5Z-EdA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3uK-W7-hKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1918.840579710145" y="949.55357142857133"/>
         </scene>
         <!--Chart-->
         <scene sceneID="nVh-yQ-zCb">
@@ -45,15 +82,11 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="949.55357142857133"/>
         </scene>
-        <!--Setting-->
-        <scene sceneID="Ecu-jB-rIN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Setting" id="cae-d6-f9g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eaQ-uY-sIx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-vz-RR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1918.840579710145" y="949.55357142857133"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

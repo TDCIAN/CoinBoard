@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1822F5FD25CA35D10085CDE9 /* ChartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822F5FC25CA35D10085CDE9 /* ChartListViewController.swift */; };
+		1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */; };
+		1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822F60625CA35F00085CDE9 /* NewsViewController.swift */; };
+		1822F60C25CA35FA0085CDE9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822F60B25CA35FA0085CDE9 /* SettingViewController.swift */; };
+		1822F61225CA38080085CDE9 /* Chart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61025CA38080085CDE9 /* Chart.storyboard */; };
+		1822F61725CA38190085CDE9 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61625CA38190085CDE9 /* News.storyboard */; };
+		1822F61D25CA382A0085CDE9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61B25CA382A0085CDE9 /* Setting.storyboard */; };
 		186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6925C8B7D00007EF9F /* AppDelegate.swift */; };
 		186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */; };
 		186CAE7125C8B7D00007EF9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE6F25C8B7D00007EF9F /* Main.storyboard */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1822F5FC25CA35D10085CDE9 /* ChartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListViewController.swift; sourceTree = "<group>"; };
+		1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailViewController.swift; sourceTree = "<group>"; };
+		1822F60625CA35F00085CDE9 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		1822F60B25CA35FA0085CDE9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		1822F61125CA38080085CDE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoinBoard/Base.lproj/Chart.storyboard; sourceTree = SOURCE_ROOT; };
+		1822F61625CA38190085CDE9 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = SOURCE_ROOT; };
+		1822F61C25CA382A0085CDE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoinBoard/Base.lproj/Setting.storyboard; sourceTree = SOURCE_ROOT; };
 		186CAE6625C8B7D00007EF9F /* CoinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186CAE6925C8B7D00007EF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +112,8 @@
 		1822F5F325CA34F60085CDE9 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				1822F61B25CA382A0085CDE9 /* Setting.storyboard */,
+				1822F60B25CA35FA0085CDE9 /* SettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -105,6 +121,8 @@
 		1822F5F425CA34F90085CDE9 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				1822F61625CA38190085CDE9 /* News.storyboard */,
+				1822F60625CA35F00085CDE9 /* NewsViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -112,6 +130,9 @@
 		1822F5F525CA34FB0085CDE9 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				1822F61025CA38080085CDE9 /* Chart.storyboard */,
+				1822F5FC25CA35D10085CDE9 /* ChartListViewController.swift */,
+				1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -277,8 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				186CAE7625C8B7D10007EF9F /* LaunchScreen.storyboard in Resources */,
+				1822F61225CA38080085CDE9 /* Chart.storyboard in Resources */,
+				1822F61725CA38190085CDE9 /* News.storyboard in Resources */,
 				186CAE7325C8B7D10007EF9F /* Assets.xcassets in Resources */,
 				186CAE7125C8B7D00007EF9F /* Main.storyboard in Resources */,
+				1822F61D25CA382A0085CDE9 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */,
+				1822F5FD25CA35D10085CDE9 /* ChartListViewController.swift in Sources */,
+				1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */,
+				1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */,
 				186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */,
+				1822F60C25CA35FA0085CDE9 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +368,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1822F61025CA38080085CDE9 /* Chart.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1822F61125CA38080085CDE9 /* Base */,
+			);
+			name = Chart.storyboard;
+			sourceTree = "<group>";
+		};
+		1822F61B25CA382A0085CDE9 /* Setting.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1822F61C25CA382A0085CDE9 /* Base */,
+			);
+			name = Setting.storyboard;
+			sourceTree = "<group>";
+		};
 		186CAE6F25C8B7D00007EF9F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
