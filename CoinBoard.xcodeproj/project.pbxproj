@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6925C8B7D00007EF9F /* AppDelegate.swift */; };
 		186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */; };
-		186CAE6E25C8B7D00007EF9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6D25C8B7D00007EF9F /* ViewController.swift */; };
 		186CAE7125C8B7D00007EF9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE6F25C8B7D00007EF9F /* Main.storyboard */; };
 		186CAE7325C8B7D10007EF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7225C8B7D10007EF9F /* Assets.xcassets */; };
 		186CAE7625C8B7D10007EF9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7425C8B7D10007EF9F /* LaunchScreen.storyboard */; };
@@ -38,7 +37,6 @@
 		186CAE6625C8B7D00007EF9F /* CoinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186CAE6925C8B7D00007EF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		186CAE6D25C8B7D00007EF9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		186CAE7025C8B7D00007EF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		186CAE7225C8B7D10007EF9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186CAE7525C8B7D10007EF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +74,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1822F5F025CA34E10085CDE9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1822F5F125CA34EB0085CDE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1822F5F225CA34F10085CDE9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1822F5F325CA34F60085CDE9 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		1822F5F425CA34F90085CDE9 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		1822F5F525CA34FB0085CDE9 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		186CAE5D25C8B7D00007EF9F = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +139,14 @@
 		186CAE6825C8B7D00007EF9F /* CoinBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1822F5F525CA34FB0085CDE9 /* Chart */,
+				1822F5F425CA34F90085CDE9 /* News */,
+				1822F5F325CA34F60085CDE9 /* Setting */,
+				1822F5F225CA34F10085CDE9 /* Network */,
+				1822F5F125CA34EB0085CDE9 /* Model */,
+				1822F5F025CA34E10085CDE9 /* Extension */,
 				186CAE6925C8B7D00007EF9F /* AppDelegate.swift */,
 				186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */,
-				186CAE6D25C8B7D00007EF9F /* ViewController.swift */,
 				186CAE6F25C8B7D00007EF9F /* Main.storyboard */,
 				186CAE7225C8B7D10007EF9F /* Assets.xcassets */,
 				186CAE7425C8B7D10007EF9F /* LaunchScreen.storyboard */,
@@ -258,7 +303,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186CAE6E25C8B7D00007EF9F /* ViewController.swift in Sources */,
 				186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */,
 				186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */,
 			);
@@ -436,15 +480,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GKWNA6U353;
+				DEVELOPMENT_TEAM = 4FTFKXF8N5;
 				INFOPLIST_FILE = CoinBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeongminKim.CoinBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeongminKim.CoinBoardforiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -455,15 +501,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GKWNA6U353;
+				DEVELOPMENT_TEAM = 4FTFKXF8N5;
 				INFOPLIST_FILE = CoinBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeongminKim.CoinBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeongminKim.CoinBoardforiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
