@@ -26,6 +26,7 @@
 		18E5261B25CB8EE200D95067 /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261A25CB8EE100D95067 /* CoinData.swift */; };
 		18E5262025CB8EEA00D95067 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261F25CB8EEA00D95067 /* Period.swift */; };
 		18E5263625CB96EB00D95067 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263525CB96EB00D95067 /* Request.swift */; };
+		18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263A25CB99F200D95067 /* EndPoint.swift */; };
 		59EC909FEB63ED0D55A5A310 /* Pods_CoinBoard_CoinBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84F5014107D3F61F0A399A9 /* Pods_CoinBoard_CoinBoardUITests.framework */; };
 		6EC9A5FAA2AD23D0EA0D80BE /* Pods_CoinBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB3BBB4972C12558A3EADA8 /* Pods_CoinBoardTests.framework */; };
 		C8147D06333185D0A8D1CEF5 /* Pods_CoinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7AA9BACEF8621FF3B4D44C /* Pods_CoinBoard.framework */; };
@@ -74,6 +75,7 @@
 		18E5261A25CB8EE100D95067 /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
 		18E5261F25CB8EEA00D95067 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		18E5263525CB96EB00D95067 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		18E5263A25CB99F200D95067 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		2CB3BBB4972C12558A3EADA8 /* Pods_CoinBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F7AA9BACEF8621FF3B4D44C /* Pods_CoinBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		591DA14D20A4F0A9488E706A /* Pods-CoinBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinBoardTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinBoardTests/Pods-CoinBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				18E5263525CB96EB00D95067 /* Request.swift */,
+				18E5263A25CB99F200D95067 /* EndPoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				1822F5FD25CA35D10085CDE9 /* ChartListViewController.swift in Sources */,
 				18E5263625CB96EB00D95067 /* Request.swift in Sources */,
 				1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */,
+				18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */,
 				1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */,
 				186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */,
 				18E5261B25CB8EE200D95067 /* CoinData.swift in Sources */,
