@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import Charts
 
 class ChartDetailViewController: UIViewController {
 
+    @IBOutlet weak var coinTypeLabel: UILabel!
+    @IBOutlet weak var currentPriceLabel: UILabel!
+    @IBOutlet weak var highlightBar: UIView!
+    @IBOutlet weak var highlightBarLeading: NSLayoutConstraint!
+    @IBOutlet weak var chartView: LineChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
