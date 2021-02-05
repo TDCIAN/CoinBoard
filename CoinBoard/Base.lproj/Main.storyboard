@@ -12,6 +12,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ncg-n0-IM8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8tF-UQ-CK4">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -45,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="949.55357142857133"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="Ecu-jB-rIN">
             <objects>
-                <viewControllerPlaceholder storyboardName="Setting" id="cae-d6-f9g" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Settings" id="cae-d6-f9g" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="eaQ-uY-sIx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-vz-RR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

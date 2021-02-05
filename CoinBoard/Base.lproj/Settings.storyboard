@@ -7,11 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="B1t-Gb-QPe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eQ9-s4-Pay" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="MyE-U7-RYN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="MyE-U7-RYN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VCm-Ng-cmm">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -26,16 +26,16 @@
             </objects>
             <point key="canvasLocation" x="1918.840579710145" y="949.55357142857133"/>
         </scene>
-        <!--System Setting-->
+        <!--System Settings-->
         <scene sceneID="sCd-qE-tlJ">
             <objects>
-                <tableViewController id="Yn5-vr-Wdj" customClass="SettingViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Yn5-vr-Wdj" customClass="SettingsViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0lb-RO-PSi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="System Setting" id="AAg-y7-g4h">
+                            <tableViewSection headerTitle="System Settings" id="AAg-y7-g4h">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ffk-Bu-aRI">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -109,7 +109,7 @@
                             <outlet property="delegate" destination="Yn5-vr-Wdj" id="JGM-uw-pMK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="System Setting" id="UfB-J1-h4Y"/>
+                    <navigationItem key="navigationItem" title="System Settings" id="UfB-J1-h4Y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHp-Mo-69K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

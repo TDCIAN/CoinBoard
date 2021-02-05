@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class ChartListViewController: UIViewController {
     
@@ -48,6 +49,9 @@ extension ChartListViewController: UICollectionViewDataSource {
 }
 
 class ChartCardCell: UICollectionViewCell {
+    @IBOutlet weak var coinNameLabel: UILabel!
+    @IBOutlet weak var lastChangeLabel: UILabel!
+    @IBOutlet weak var chartViewForCardCell: LineChartView!
     
 }
 
@@ -64,5 +68,11 @@ extension ChartListViewController: UITableViewDataSource {
 }
 
 class ChartListCell: UITableViewCell {
-    
+    @IBOutlet weak var currentStatusBox: UIView!
+    @IBOutlet weak var coinName: UILabel!
+    @IBOutlet weak var currentPrice: UILabel!
+    @IBOutlet weak var change24Hours: UILabel!
+    @IBOutlet weak var changePercent: UILabel!
+    @IBOutlet weak var currency: UILabel!
+    @IBOutlet weak var currentStatusImageView: UIImageView!
 }
