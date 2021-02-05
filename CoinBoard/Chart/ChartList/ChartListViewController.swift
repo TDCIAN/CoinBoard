@@ -39,11 +39,10 @@ extension ChartListViewController {
     private func showDetail(coinInfo: CoinInfo) {
         let storyboard = UIStoryboard(name: "Chart", bundle: .main)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "ChartDetailViewController") as? ChartDetailViewController {
-//            detailVC.viewModel
+            detailVC.viewModel = ChartDetailViewModel(coinInfo: coinInfo, chartDatas: [], selectedPeriod: .day, changeHandler: { _, _ in })
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
-    
 }
 
 extension ChartListViewController: UICollectionViewDataSource {
@@ -53,17 +52,27 @@ extension ChartListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChartCardCell", for: indexPath) as? ChartCardCell else { return UICollectionViewCell() }
-//        cell.viewModel
+        let coinInfo = viewModel.coinInfo(at: indexPath)
+        cell.viewModel = ChartCardCellViewModel(coinInfo: coinInfo, chartDatas: [], selectedPeriod: .week, changeHandler: { _, _ in })
+        cell.viewModel.updateNotify { chartDatas, selectedPeriod in
+            cell.renderChart(with: chartDatas, period: selectedPeriod)
+        }
+        cell.viewModel.fetchData()
+        cell.updateCoinInfo(cell.viewModel)
         return cell
     }
-    
 }
 
-class ChartCardCell: UICollectionViewCell {
-    @IBOutlet weak var coinNameLabel: UILabel!
-    @IBOutlet weak var lastChangeLabel: UILabel!
-    @IBOutlet weak var chartViewForCardCell: LineChartView!
+extension ChartListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.width - 20 * 2 - 15
+        let height: CGFloat = 200
+        return CGSize(width: width, height: height)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
+    }
 }
 
 extension ChartListViewController: UITableViewDataSource {
