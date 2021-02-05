@@ -15,7 +15,6 @@ class NewsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 }
 
 extension NewsViewController: UITableViewDataSource {
@@ -27,8 +26,6 @@ extension NewsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListCell", for: indexPath) as? NewsListCell else { return UITableViewCell() }
         return cell
     }
-    
-    
 }
 
 class NewsListCell: UITableViewCell {
