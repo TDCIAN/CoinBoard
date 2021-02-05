@@ -32,5 +32,8 @@ extension NewsViewController: UITableViewDataSource {
 }
 
 class NewsListCell: UITableViewCell {
+    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var newsTitle: UILabel!
+    @IBOutlet weak var newsDate: UILabel!
     
 }

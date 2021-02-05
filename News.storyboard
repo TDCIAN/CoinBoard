@@ -22,7 +22,43 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EQV-xz-9Xi" id="Mez-es-nN9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-QC-QoR">
+                                            <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="2EY-Gl-Rsr"/>
+                                                <constraint firstAttribute="width" constant="80" id="oUN-r5-IbO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frD-pc-WxM">
+                                            <rect key="frame" x="110" y="10" width="78" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <string key="text">Hello World
+2nd line
+3rd line</string>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Feb 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyk-u1-N9d">
+                                            <rect key="frame" x="110" y="74" width="65" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Cyk-u1-N9d" firstAttribute="leading" secondItem="HSr-QC-QoR" secondAttribute="trailing" constant="10" id="AEC-nk-3e5"/>
+                                        <constraint firstItem="Cyk-u1-N9d" firstAttribute="bottom" secondItem="HSr-QC-QoR" secondAttribute="bottom" id="DfW-AO-Hh9"/>
+                                        <constraint firstItem="HSr-QC-QoR" firstAttribute="leading" secondItem="Mez-es-nN9" secondAttribute="leading" constant="20" symbolic="YES" id="WK9-Kn-WlI"/>
+                                        <constraint firstItem="HSr-QC-QoR" firstAttribute="centerY" secondItem="Mez-es-nN9" secondAttribute="centerY" id="y9d-61-FEZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="newsDate" destination="Cyk-u1-N9d" id="6FP-d1-JJY"/>
+                                    <outlet property="newsTitle" destination="Cyk-u1-N9d" id="kXn-ne-rmo"/>
+                                    <outlet property="thumbnail" destination="HSr-QC-QoR" id="gZ2-13-1pm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -63,6 +99,9 @@
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
