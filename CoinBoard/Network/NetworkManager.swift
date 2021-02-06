@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManager {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
-        let param:RequestParam = .url(["fsyms":"BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC,BTG","tsyms":"USD"])
+        let param:RequestParam = .url(["fsyms":"BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC,BTG","tsyms":"USD,KRW"])
         guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else { return }
         // MARK: 이거 responseJSON 대신 쓸 수 있는지 확인해보자 -> JSONSerialization 필요 없어지나?
 //        AF.request(coinListURL).responseData(completionHandler: )

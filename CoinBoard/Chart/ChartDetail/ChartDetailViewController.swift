@@ -62,7 +62,8 @@ class ChartDetailViewController: UIViewController {
 extension ChartDetailViewController {
     private func updateCoinInfo(_ viewModel: ChartDetailViewModel) {
         coinTypeLabel.text = "\(viewModel.coinInfo.key)"
-        currentPriceLabel.text = String(format: "%.1f", viewModel.coinInfo.value.usd.price)
+//        currentPriceLabel.text = String(format: "%.1f", viewModel.coinInfo.value.usd.price)
+        currentPriceLabel.text = String(format: "%.1f", viewModel.coinInfo.value.krw.price)
     }
     
     private func moveHighlightBar(to button: UIButton) {

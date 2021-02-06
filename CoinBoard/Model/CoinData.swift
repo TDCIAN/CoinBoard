@@ -68,9 +68,11 @@ extension RAWData {
 
 struct Coin: Codable {
     let usd: CurrencyInfo
+    let krw: CurrencyInfo
     
     enum CodingKeys: String, CodingKey {
         case usd = "USD"
+        case krw = "KRW"
     }
 }
 
