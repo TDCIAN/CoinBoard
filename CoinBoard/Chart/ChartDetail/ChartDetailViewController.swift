@@ -28,6 +28,34 @@ class ChartDetailViewController: UIViewController {
         }
         viewModel.fetchData()
     }
+    @IBAction func clickDayButton(_ sender: UIButton) {
+        viewModel.selectedPeriod = .day
+        let datas = viewModel.chartDatas
+        let selectedPeriod = viewModel.selectedPeriod
+        renderChart(with: datas, period: selectedPeriod)
+        moveHighlightBar(to: sender)
+    }
+    @IBAction func clickWeekButton(_ sender: UIButton) {
+        viewModel.selectedPeriod = .week
+        let datas = viewModel.chartDatas
+        let selectedPeriod = viewModel.selectedPeriod
+        renderChart(with: datas, period: selectedPeriod)
+        moveHighlightBar(to: sender)
+    }
+    @IBAction func clickMonthButton(_ sender: UIButton) {
+        viewModel.selectedPeriod = .month
+        let datas = viewModel.chartDatas
+        let selectedPeriod = viewModel.selectedPeriod
+        renderChart(with: datas, period: selectedPeriod)
+        moveHighlightBar(to: sender)
+    }
+    @IBAction func clickYearButton(_ sender: UIButton) {
+        viewModel.selectedPeriod = .year
+        let datas = viewModel.chartDatas
+        let selectedPeriod = viewModel.selectedPeriod
+        renderChart(with: datas, period: selectedPeriod)
+        moveHighlightBar(to: sender)
+    }
     
 }
 

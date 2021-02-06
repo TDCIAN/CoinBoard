@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-AD-pzx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-Su-fxO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -30,11 +30,11 @@
                                             <size key="itemSize" width="400" height="300"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChartCardCell" id="BfB-bv-UTd" customClass="ChartCardCell" customModule="CoinBoard" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="0.0" width="400" height="300"/>
+                                                <rect key="frame" x="15" y="0.0" width="400" height="300"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QC1-42-NJP">
                                                     <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
@@ -68,6 +68,7 @@
                                                         <constraint firstItem="9sv-8V-Ws0" firstAttribute="leading" secondItem="QC1-42-NJP" secondAttribute="leading" constant="15" id="tEJ-WB-CXX"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="chartViewForCardCell" destination="9sv-8V-Ws0" id="zBV-EK-QQQ"/>
                                                     <outlet property="coinNameLabel" destination="3gA-CJ-KiF" id="mS9-iU-cdu"/>
@@ -286,18 +287,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdj-9C-oqn" userLabel="1D">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="40"/>
                                                 <state key="normal" title="1D"/>
+                                                <connections>
+                                                    <action selector="clickDayButton:" destination="CVc-vW-Cj0" eventType="touchUpInside" id="FpY-4H-cJ1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNY-BS-PXl">
                                                 <rect key="frame" x="83.5" y="0.0" width="83.5" height="40"/>
                                                 <state key="normal" title="1W"/>
+                                                <connections>
+                                                    <action selector="clickWeekButton:" destination="CVc-vW-Cj0" eventType="touchUpInside" id="4do-gq-lIh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8P8-pZ-O5T">
                                                 <rect key="frame" x="167" y="0.0" width="83.5" height="40"/>
                                                 <state key="normal" title="1M"/>
+                                                <connections>
+                                                    <action selector="clickMonthButton:" destination="CVc-vW-Cj0" eventType="touchUpInside" id="mhj-Qg-3k3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd7-IL-Tou">
                                                 <rect key="frame" x="250.5" y="0.0" width="83.5" height="40"/>
                                                 <state key="normal" title="1Y"/>
+                                                <connections>
+                                                    <action selector="clickYearButton:" destination="CVc-vW-Cj0" eventType="touchUpInside" id="YHm-bW-Iph"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -390,6 +403,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

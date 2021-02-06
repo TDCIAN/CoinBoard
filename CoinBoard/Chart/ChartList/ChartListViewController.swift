@@ -65,8 +65,8 @@ extension ChartListViewController: UICollectionViewDataSource {
 
 extension ChartListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = collectionView.frame.width - 20 * 2 - 15
-        let height: CGFloat = 200
+        let width: CGFloat = collectionView.frame.width - 15 * 2
+        let height: CGFloat = 300
         return CGSize(width: width, height: height)
     }
     
