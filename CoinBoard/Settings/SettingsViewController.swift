@@ -22,6 +22,7 @@ class SettingsViewController: UITableViewController {
     func setupView() {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
         currencySegmented.selectedSegmentIndex = ConfigManager.getInstance.currencyType
+        periodSegmented.selectedSegmentIndex = ConfigManager.getInstance.periodType
     }
     
     func addTarget() {
@@ -45,43 +46,29 @@ class SettingsViewController: UITableViewController {
     @objc func handleCurrencySeg(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("USD 눌렀네: \(sender.selectedSegmentIndex)")
             ConfigManager.getInstance.currencyType = 0
             UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
         case 1:
-            print("KRW 눌렀네: \(sender.selectedSegmentIndex)")
             ConfigManager.getInstance.currencyType = 1
             UserDefaults.standard.set(1, forKey: Constants.CURRENCY_TYPE)
         default:
             ConfigManager.getInstance.currencyType = 0
             UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
-            print("기본은 USD임: \(sender.selectedSegmentIndex)")
         }
     }
     
     @objc func handlePeriodSeg(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("Day 눌렀네: \(sender.selectedSegmentIndex)")
             UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
         case 1:
-            print("Week 눌렀네: \(sender.selectedSegmentIndex)")
             UserDefaults.standard.set(1, forKey: Constants.PERIOD_TYPE)
         case 2:
-            print("Month 눌렀네: \(sender.selectedSegmentIndex)")
             UserDefaults.standard.set(2, forKey: Constants.PERIOD_TYPE)
         case 3:
-            print("Year 눌렀네: \(sender.selectedSegmentIndex)")
             UserDefaults.standard.set(3, forKey: Constants.PERIOD_TYPE)
         default:
-            print("기본은 Day임: \(sender.selectedSegmentIndex)")
             UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
         }
-    }
-}
-
-extension SettingsViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("셀 클릭했네")
     }
 }

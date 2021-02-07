@@ -276,9 +276,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="Oew-xN-RUz" secondAttribute="bottom" id="98p-FL-4Sm"/>
                                                 <constraint firstItem="1fL-RR-tBG" firstAttribute="top" secondItem="Z8n-UD-52D" secondAttribute="bottom" constant="4" id="NJq-jl-jux"/>
                                                 <constraint firstItem="JDd-1D-9PJ" firstAttribute="top" secondItem="XmY-zo-80J" secondAttribute="top" constant="10" id="U94-iz-HJd"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1fL-RR-tBG" secondAttribute="trailing" constant="20" symbolic="YES" id="UZr-Td-u0h"/>
                                                 <constraint firstAttribute="trailing" secondItem="Oew-xN-RUz" secondAttribute="trailing" constant="15" id="Wmp-yc-U1x"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JDd-1D-9PJ" secondAttribute="trailing" constant="20" symbolic="YES" id="gMl-5y-blf"/>
                                                 <constraint firstItem="Z8n-UD-52D" firstAttribute="leading" secondItem="JDd-1D-9PJ" secondAttribute="leading" id="iTb-OK-75W"/>
                                                 <constraint firstItem="1fL-RR-tBG" firstAttribute="leading" secondItem="Z8n-UD-52D" secondAttribute="leading" id="rac-Qa-gw0"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z8n-UD-52D" secondAttribute="trailing" constant="20" symbolic="YES" id="u6A-Rx-2t3"/>
                                                 <constraint firstItem="Z8n-UD-52D" firstAttribute="top" secondItem="JDd-1D-9PJ" secondAttribute="bottom" constant="5" id="x4i-Es-lkd"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -81,12 +81,14 @@ struct CurrencyInfo: Codable {
     let changeLast24H: Double
     let changePercentLast24H: Double
     let market: String
+    let marketCapitalization: Double
     
     enum CodingKeys: String, CodingKey {
         case price = "PRICE"
         case changeLast24H = "CHANGE24HOUR"
         case changePercentLast24H = "CHANGEPCT24HOUR"
         case market = "LASTMARKET"
+        case marketCapitalization = "MKTCAP"
     }
 }
 

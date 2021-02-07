@@ -13,12 +13,23 @@ class ChartCardCellViewModel {
     
     var coinInfo: CoinInfo!
     var chartDatas: [CoinChartInfo] = []
-    var selectedPeriod: Period = .week
+    var selectedPeriod: Period = .day
     
-    init(coinInfo: CoinInfo, chartDatas: [CoinChartInfo], selectedPeriod: Period, changeHandler: @escaping Handler) {
+    init(coinInfo: CoinInfo, chartDatas: [CoinChartInfo], periodType: Int, changeHandler: @escaping Handler) {
         self.coinInfo = coinInfo
         self.chartDatas = chartDatas
-        self.selectedPeriod = selectedPeriod
+        switch periodType {
+        case 0:
+            self.selectedPeriod = .day
+        case 1:
+            self.selectedPeriod = .week
+        case 2:
+            self.selectedPeriod = .month
+        case 3:
+            self.selectedPeriod = .year
+        default:
+            self.selectedPeriod = .day
+        }
         self.changeHandler = changeHandler
     }
 }
@@ -27,7 +38,7 @@ extension ChartCardCellViewModel {
     func fetchData() {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        NetworkManager.requestCoinChartData(coinType: coinInfo.key, period: .week) { result in
+        NetworkManager.requestCoinChartData(coinType: coinInfo.key, period: selectedPeriod) { result in
             dispatchGroup.leave()
             switch result {
             case .success(let coinChartDatas):

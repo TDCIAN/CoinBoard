@@ -49,7 +49,7 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         // -- draw mode
         lineChartDataSet.mode = .horizontalBezier
         // -- color
-        lineChartDataSet.colors = [UIColor.systemBlue]
+        lineChartDataSet.colors = [UIColor.systemRed]
         // -- draw circle
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawCircleHoleEnabled = false
@@ -58,13 +58,13 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         // -- highlight when user touch
         lineChartDataSet.highlightEnabled = false
         lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartDataSet.highlightColor = UIColor.systemBlue
+        lineChartDataSet.highlightColor = UIColor.systemRed
         
         let data = LineChartData(dataSet: lineChartDataSet)
         chartViewForCardCell.data = data
         
         // gradient fill -> 이거 나중에 바꾸면 차트 컬러 바꿀 수 있겠다
-        let startColor = UIColor.systemBlue
+        let startColor = UIColor.systemRed
         let endColor = UIColor(white: 1, alpha: 0.3)
         
         let gradientColors = [startColor.cgColor, endColor.cgColor] as CFArray // Colors of the gradient
