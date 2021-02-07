@@ -41,6 +41,7 @@
 		18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5272D25CCEFF500D95067 /* ChartXAxisDayFormatter.swift */; };
 		18E5273325CCF15600D95067 /* ChartCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273225CCF15600D95067 /* ChartCardCell.swift */; };
 		18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */; };
+		18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */; };
 		59EC909FEB63ED0D55A5A310 /* Pods_CoinBoard_CoinBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84F5014107D3F61F0A399A9 /* Pods_CoinBoard_CoinBoardUITests.framework */; };
 		6EC9A5FAA2AD23D0EA0D80BE /* Pods_CoinBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB3BBB4972C12558A3EADA8 /* Pods_CoinBoardTests.framework */; };
 		C8147D06333185D0A8D1CEF5 /* Pods_CoinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7AA9BACEF8621FF3B4D44C /* Pods_CoinBoard.framework */; };
@@ -104,6 +105,7 @@
 		18E5272D25CCEFF500D95067 /* ChartXAxisDayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisDayFormatter.swift; sourceTree = "<group>"; };
 		18E5273225CCF15600D95067 /* ChartCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCell.swift; sourceTree = "<group>"; };
 		18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCellViewModel.swift; sourceTree = "<group>"; };
+		18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		2CB3BBB4972C12558A3EADA8 /* Pods_CoinBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F7AA9BACEF8621FF3B4D44C /* Pods_CoinBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		591DA14D20A4F0A9488E706A /* Pods-CoinBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinBoardTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinBoardTests/Pods-CoinBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				1822F61B25CA382A0085CDE9 /* Settings.storyboard */,
 				1822F60B25CA35FA0085CDE9 /* SettingsViewController.swift */,
+				18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				18E5271C25CCE85600D95067 /* ChartListViewModel.swift in Sources */,
 				18E5264525CB9A8A00D95067 /* CoinChartDataRequest.swift in Sources */,
 				18E5272325CCEB8200D95067 /* ChartDetailViewModel.swift in Sources */,
+				18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */,
 				18E5261B25CB8EE200D95067 /* CoinData.swift in Sources */,
 				18E5270D25CCE36700D95067 /* NewsListCell.swift in Sources */,
 				18E5261625CB8ED900D95067 /* ChartData.swift in Sources */,

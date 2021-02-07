@@ -79,3 +79,9 @@ class SettingsViewController: UITableViewController {
         }
     }
 }
+
+extension SettingsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("셀 클릭했네")
+    }
+}

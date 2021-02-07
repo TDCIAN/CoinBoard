@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,38 +161,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXW-yr-t5T">
-                                                    <rect key="frame" x="20" y="13" width="54.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <color key="textColor" systemColor="systemGrayColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdw-kk-YIS">
+                                                    <rect key="frame" x="20" y="7" width="141" height="30"/>
+                                                    <state key="normal" title="Opensource License">
+                                                        <color key="titleColor" systemColor="systemGrayColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="xCG-WH-KqC" kind="showDetail" id="VVx-65-efT"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="tXW-yr-t5T" firstAttribute="leading" secondItem="swt-xs-0mx" secondAttribute="leading" constant="20" id="7qN-X8-k8h"/>
-                                                <constraint firstItem="tXW-yr-t5T" firstAttribute="centerY" secondItem="swt-xs-0mx" secondAttribute="centerY" id="bHG-Fj-5hA"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tXW-yr-t5T" secondAttribute="trailing" constant="20" symbolic="YES" id="gjP-5L-dSP"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wkJ-8t-0GD">
-                                        <rect key="frame" x="0.0" y="301.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wkJ-8t-0GD" id="ymG-YN-gFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulG-cL-w7q">
-                                                    <rect key="frame" x="20" y="13" width="118" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <color key="textColor" systemColor="systemGrayColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ulG-cL-w7q" firstAttribute="leading" secondItem="ymG-YN-gFM" secondAttribute="leading" constant="20" id="d1z-bm-ZhI"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ulG-cL-w7q" secondAttribute="trailing" constant="20" symbolic="YES" id="grz-AR-WEx"/>
-                                                <constraint firstItem="ulG-cL-w7q" firstAttribute="centerY" secondItem="ymG-YN-gFM" secondAttribute="centerY" id="jB9-KM-Pad"/>
+                                                <constraint firstItem="kdw-kk-YIS" firstAttribute="leading" secondItem="swt-xs-0mx" secondAttribute="leading" constant="20" id="0KT-QJ-c6g"/>
+                                                <constraint firstItem="kdw-kk-YIS" firstAttribute="centerY" secondItem="swt-xs-0mx" secondAttribute="centerY" id="Tyl-er-UNk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -200,7 +182,7 @@
                             <tableViewSection headerTitle="Contact" id="VaG-qB-TW9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8qL-87-crb">
-                                        <rect key="frame" x="0.0" y="401" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="357.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8qL-87-crb" id="ggG-fm-c2q">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -239,11 +221,116 @@
             </objects>
             <point key="canvasLocation" x="1919" y="1665"/>
         </scene>
+        <!--Open Source View Controller-->
+        <scene sceneID="3nP-nN-4ZM">
+            <objects>
+                <viewController id="xCG-WH-KqC" customClass="OpenSourceViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cKy-jk-xhq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="h6q-8a-OoE">
+                                <rect key="frame" x="0.0" y="137" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpenSourceLicenseTableViewCell" id="z3n-22-0se" customClass="OpenSourceLicenseTableViewCell" customModule="CoinBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3n-22-0se" id="XmY-zo-80J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamofire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDd-1D-9PJ">
+                                                    <rect key="frame" x="20" y="10" width="73" height="21"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/Alamofire/Alamofire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8n-UD-52D">
+                                                    <rect key="frame" x="20" y="36" width="226" height="16"/>
+                                                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIT license" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fL-RR-tBG" userLabel="License Label">
+                                                    <rect key="frame" x="20" y="56" width="71" height="17"/>
+                                                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oew-xN-RUz">
+                                                    <rect key="frame" x="15" y="79" width="384" height="1"/>
+                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="MyU-1s-lI4"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Oew-xN-RUz" firstAttribute="leading" secondItem="XmY-zo-80J" secondAttribute="leading" constant="15" id="1cG-Vr-Bia"/>
+                                                <constraint firstItem="JDd-1D-9PJ" firstAttribute="leading" secondItem="XmY-zo-80J" secondAttribute="leading" constant="20" symbolic="YES" id="798-p5-UQc"/>
+                                                <constraint firstAttribute="bottom" secondItem="Oew-xN-RUz" secondAttribute="bottom" id="98p-FL-4Sm"/>
+                                                <constraint firstItem="1fL-RR-tBG" firstAttribute="top" secondItem="Z8n-UD-52D" secondAttribute="bottom" constant="4" id="NJq-jl-jux"/>
+                                                <constraint firstItem="JDd-1D-9PJ" firstAttribute="top" secondItem="XmY-zo-80J" secondAttribute="top" constant="10" id="U94-iz-HJd"/>
+                                                <constraint firstAttribute="trailing" secondItem="Oew-xN-RUz" secondAttribute="trailing" constant="15" id="Wmp-yc-U1x"/>
+                                                <constraint firstItem="Z8n-UD-52D" firstAttribute="leading" secondItem="JDd-1D-9PJ" secondAttribute="leading" id="iTb-OK-75W"/>
+                                                <constraint firstItem="1fL-RR-tBG" firstAttribute="leading" secondItem="Z8n-UD-52D" secondAttribute="leading" id="rac-Qa-gw0"/>
+                                                <constraint firstItem="Z8n-UD-52D" firstAttribute="top" secondItem="JDd-1D-9PJ" secondAttribute="bottom" constant="5" id="x4i-Es-lkd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="licenseLabel" destination="1fL-RR-tBG" id="loH-oI-uOb"/>
+                                            <outlet property="nameLabel" destination="JDd-1D-9PJ" id="zoi-oB-50s"/>
+                                            <outlet property="urlLabel" destination="Z8n-UD-52D" id="aG4-lu-5fQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xCG-WH-KqC" id="yz2-FU-QK5"/>
+                                    <outlet property="delegate" destination="xCG-WH-KqC" id="NJI-P0-TI6"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opensource License" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeV-tv-92l">
+                                <rect key="frame" x="95.5" y="63" width="223" height="29"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qbK-C7-d9B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EeV-tv-92l" firstAttribute="centerX" secondItem="qbK-C7-d9B" secondAttribute="centerX" id="9pE-H7-3Ev"/>
+                            <constraint firstItem="EeV-tv-92l" firstAttribute="top" secondItem="qbK-C7-d9B" secondAttribute="top" constant="63" id="aIN-NK-vxx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="opensourceTableView" destination="h6q-8a-OoE" id="eEf-UE-pl8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCj-AC-Rax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2800" y="1665"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
