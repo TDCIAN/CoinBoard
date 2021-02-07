@@ -51,19 +51,33 @@ class NetworkManager {
                                         "limit":"\(period.limitParameter)",
                                         "aggregate":"\(period.aggregateParameter)"])
         guard let coinChartDataURL = CoinChartDataRequest(period: .day, param: param).urlRequest()?.url else { return }
-        AF.request(coinChartDataURL).responseJSON { response in
+//        AF.request(coinChartDataURL).responseJSON { response in
+//            switch response.result {
+//            case .success(let successData):
+//                let decoder = JSONDecoder()
+//                do {
+//                    let coinChartRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
+//                    let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: coinChartRawData)
+//                    completion(.success(coinChartProcessedData.chartDatas))
+//                } catch let error {
+//                    print("--> coin chart decoding error: \(error.localizedDescription)")
+//                }
+//            case .failure(let error):
+//                print("--> coin chart error: \(error.localizedDescription)")
+//            }
+//        }
+        AF.request(coinChartDataURL).responseData { response in
             switch response.result {
             case .success(let successData):
                 let decoder = JSONDecoder()
                 do {
-                    let coinChartRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
-                    let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: coinChartRawData)
+                    let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: successData)
                     completion(.success(coinChartProcessedData.chartDatas))
                 } catch let error {
-                    print("--> coin chart decoding error: \(error.localizedDescription)")
+                    print("==> coin chart error: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("--> coin chart error: \(error.localizedDescription)")
+                print("==> coin chart error: \(error.localizedDescription)")
             }
         }
     }
