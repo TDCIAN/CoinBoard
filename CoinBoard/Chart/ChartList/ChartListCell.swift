@@ -19,16 +19,18 @@ class ChartListCell: UITableViewCell {
     func configCell(coinInfo: CoinInfo) {
         let coinType = coinInfo.key
         let coin = coinInfo.value
-        
-        let isUnderPerform = coin.usd.changeLast24H < 0
+        let currentCurrency = UserDefaults.standard.integer(forKey: Constants.CURRENCY_TYPE)
+        let currencyType = (currentCurrency == 0) ? coin.usd : coin.krw
+        let isUnderPerform = currencyType.changeLast24H < 0
         let upColor = UIColor.systemPink
         let downColor = UIColor.systemBlue
         let color = isUnderPerform ? downColor : upColor
         currentStatusBox.backgroundColor = color
         coinName.text = coinType.rawValue
-        currentPrice.text = String(format: "%.1f", coin.usd.price)
-        change24Hours.text = String(format: "%.1f", coin.usd.changeLast24H)
-        changePercent.text = String(format: "%.1f %%", coin.usd.changePercentLast24H)
+        currency.text = (currentCurrency == 0) ? "USD" : "KRW"
+        currentPrice.text = String(format: "%.2f", currencyType.price)
+        change24Hours.text = String(format: "%.1f", currencyType.changeLast24H)
+        changePercent.text = String(format: "%.1f %%", currencyType.changePercentLast24H)
         change24Hours.textColor = color
         changePercent.textColor = color
         

@@ -14,12 +14,15 @@ class ChartDetailViewModel {
     var coinInfo: CoinInfo!
     var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
+    var currencyType: String = ""
     
     init(coinInfo: CoinInfo, chartDatas: [CoinChartInfo], selectedPeriod: Period, changeHandler: @escaping Handler) {
         self.coinInfo = coinInfo
         self.chartDatas = chartDatas
         self.selectedPeriod = selectedPeriod
         self.changeHandler = changeHandler
+        let currentCurrency = UserDefaults.standard.integer(forKey: Constants.CURRENCY_TYPE)
+        self.currencyType = (currentCurrency == 0) ? "USD" : "KRW"
     }
 }
 

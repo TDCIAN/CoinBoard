@@ -54,7 +54,7 @@
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sv-8V-Ws0" customClass="LineChartView" customModule="Charts">
                                                             <rect key="frame" x="15" y="70" width="370" height="230"/>
-                                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
@@ -68,7 +68,7 @@
                                                         <constraint firstItem="9sv-8V-Ws0" firstAttribute="leading" secondItem="QC1-42-NJP" secondAttribute="leading" constant="15" id="tEJ-WB-CXX"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="chartViewForCardCell" destination="9sv-8V-Ws0" id="zBV-EK-QQQ"/>
                                                     <outlet property="coinNameLabel" destination="3gA-CJ-KiF" id="mS9-iU-cdu"/>
@@ -354,6 +354,7 @@
                     <connections>
                         <outlet property="chartView" destination="3me-2j-265" id="zog-pR-X4M"/>
                         <outlet property="coinTypeLabel" destination="yQt-Rb-zuO" id="mzp-7D-CWX"/>
+                        <outlet property="currencyType" destination="riY-OH-bTr" id="fTU-we-j6e"/>
                         <outlet property="currentPriceLabel" destination="XQf-9H-Hgy" id="UI8-kt-azF"/>
                         <outlet property="highlightBar" destination="inO-iD-228" id="hv2-J8-QM9"/>
                         <outlet property="highlightBarLeading" destination="586-PQ-hsS" id="Ah9-88-iOq"/>
@@ -398,14 +399,8 @@
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

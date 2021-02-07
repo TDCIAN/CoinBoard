@@ -29,6 +29,12 @@ class ChartListViewController: UIViewController {
         })
         viewModel.fetchData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        chartCollectionView.reloadData()
+        chartTableView.reloadData()
+    }
 }
 
 extension ChartListViewController {

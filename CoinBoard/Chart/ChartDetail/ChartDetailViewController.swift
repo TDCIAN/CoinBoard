@@ -13,6 +13,7 @@ class ChartDetailViewController: UIViewController {
 
     @IBOutlet weak var coinTypeLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
+    @IBOutlet weak var currencyType: UILabel!
     @IBOutlet weak var highlightBar: UIView!
     @IBOutlet weak var highlightBarLeading: NSLayoutConstraint!
     @IBOutlet weak var chartView: LineChartView!
@@ -21,6 +22,9 @@ class ChartDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateCoinInfo(viewModel)
         // -> changeHandler에 대한 업데이트
         viewModel.updateNotify { chartDatas, selectedPeriod in
@@ -61,9 +65,10 @@ class ChartDetailViewController: UIViewController {
 
 extension ChartDetailViewController {
     private func updateCoinInfo(_ viewModel: ChartDetailViewModel) {
+        currencyType.text = viewModel.currencyType
         coinTypeLabel.text = "\(viewModel.coinInfo.key)"
-//        currentPriceLabel.text = String(format: "%.1f", viewModel.coinInfo.value.usd.price)
-        currentPriceLabel.text = String(format: "%.1f", viewModel.coinInfo.value.krw.price)
+        let currentPrice = (viewModel.currencyType == "USD") ? viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
+        currentPriceLabel.text = String(format: "%.1f", currentPrice)
     }
     
     private func moveHighlightBar(to button: UIButton) {
@@ -88,7 +93,7 @@ extension ChartDetailViewController {
         // -- draw mode
         lineChartDataSet.mode = .horizontalBezier
         // -- color
-        lineChartDataSet.colors = [UIColor.systemBlue]
+        lineChartDataSet.colors = [UIColor.systemRed]
         // -- draw circle
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawCircleHoleEnabled = false
@@ -97,13 +102,13 @@ extension ChartDetailViewController {
         // -- highlight when user touch
         lineChartDataSet.highlightEnabled = true
         lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartDataSet.highlightColor = UIColor.systemBlue
+        lineChartDataSet.highlightColor = UIColor.systemRed
         
         let data = LineChartData(dataSet: lineChartDataSet)
         chartView.data = data
         
         // gradient fill
-        let startColor = UIColor.systemBlue
+        let startColor = UIColor.systemRed
         let endColor = UIColor(white: 1, alpha: 0.3)
         
         let gradientColors = [startColor.cgColor, endColor.cgColor] as CFArray // Colors of the gradient
