@@ -39,7 +39,7 @@ class NetworkManager {
                     
                 }
             case .failure(let error):
-                print("==> coin list error: \(error.localizedDescription)")
+                print("==> coin list catch error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
         }
@@ -74,7 +74,7 @@ class NetworkManager {
                     let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: successData)
                     completion(.success(coinChartProcessedData.chartDatas))
                 } catch let error {
-                    print("==> coin chart error: \(error.localizedDescription)")
+                    print("==> coin chart catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
                 print("==> coin chart error: \(error.localizedDescription)")
@@ -84,19 +84,33 @@ class NetworkManager {
     
     static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void) {
         guard let newsURL = NewsListRequest().urlRequest()?.url else { return }
-        AF.request(newsURL).responseJSON { response in
+//        AF.request(newsURL).responseJSON { response in
+//            switch response.result {
+//            case .success(let successData):
+//                let decoder = JSONDecoder()
+//                do {
+//                    let newsListRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
+//                    let newsListProcessedData = try decoder.decode([NewsResponse].self, from: newsListRawData)
+//                    completion(.success(newsListProcessedData.flatMap { $0.articleArray }))
+//                } catch let error {
+//                    print("--> news list decoding error: \(error.localizedDescription)")
+//                }
+//            case .failure(let error):
+//                print("--> news list error: \(error.localizedDescription)")
+//            }
+//        }
+        AF.request(newsURL).responseData { response in
             switch response.result {
             case .success(let successData):
                 let decoder = JSONDecoder()
                 do {
-                    let newsListRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
-                    let newsListProcessedData = try decoder.decode([NewsResponse].self, from: newsListRawData)
+                    let newsListProcessedData = try decoder.decode([NewsResponse].self, from: successData)
                     completion(.success(newsListProcessedData.flatMap { $0.articleArray }))
                 } catch let error {
-                    print("--> news list decoding error: \(error.localizedDescription)")
+                    print("==> news list catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("--> news list error: \(error.localizedDescription)")
+                print("==> news list error: \(error.localizedDescription)")
             }
         }
     }
