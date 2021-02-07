@@ -14,6 +14,8 @@
 		1822F61225CA38080085CDE9 /* Chart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61025CA38080085CDE9 /* Chart.storyboard */; };
 		1822F61725CA38190085CDE9 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61625CA38190085CDE9 /* News.storyboard */; };
 		1822F61D25CA382A0085CDE9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822F61B25CA382A0085CDE9 /* Settings.storyboard */; };
+		1855EABF25CFFF2900511317 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855EABE25CFFF2900511317 /* Constants.swift */; };
+		1855EAC525D0032500511317 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855EAC425D0032500511317 /* ConfigManager.swift */; };
 		186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6925C8B7D00007EF9F /* AppDelegate.swift */; };
 		186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */; };
 		186CAE7125C8B7D00007EF9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE6F25C8B7D00007EF9F /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		1822F61125CA38080085CDE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoinBoard/Base.lproj/Chart.storyboard; sourceTree = SOURCE_ROOT; };
 		1822F61625CA38190085CDE9 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = SOURCE_ROOT; };
 		1822F61C25CA382A0085CDE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoinBoard/Base.lproj/Settings.storyboard; sourceTree = SOURCE_ROOT; };
+		1855EABE25CFFF2900511317 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1855EAC425D0032500511317 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		186CAE6625C8B7D00007EF9F /* CoinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186CAE6925C8B7D00007EF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +205,15 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		1855EAC325D0031600511317 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1855EABE25CFFF2900511317 /* Constants.swift */,
+				1855EAC425D0032500511317 /* ConfigManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		186CAE5D25C8B7D00007EF9F = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +239,7 @@
 		186CAE6825C8B7D00007EF9F /* CoinBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1855EAC325D0031600511317 /* Common */,
 				1822F5F525CA34FB0085CDE9 /* Chart */,
 				1822F5F425CA34F90085CDE9 /* News */,
 				1822F5F325CA34F60085CDE9 /* Settings */,
@@ -545,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1855EABF25CFFF2900511317 /* Constants.swift in Sources */,
 				18E5264A25CB9AE400D95067 /* NewsListRequest.swift in Sources */,
 				18E5262025CB8EEA00D95067 /* Period.swift in Sources */,
 				18E5261425CB8ED000D95067 /* Article.swift in Sources */,
@@ -555,6 +570,7 @@
 				18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */,
 				18E5263625CB96EB00D95067 /* Request.swift in Sources */,
 				18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */,
+				1855EAC525D0032500511317 /* ConfigManager.swift in Sources */,
 				1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */,
 				18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */,
 				1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */,

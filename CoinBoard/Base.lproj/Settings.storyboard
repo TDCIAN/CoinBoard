@@ -30,7 +30,7 @@
         <scene sceneID="sCd-qE-tlJ">
             <objects>
                 <tableViewController id="Yn5-vr-Wdj" customClass="SettingsViewController" customModule="CoinBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0lb-RO-PSi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="40" sectionFooterHeight="15" id="0lb-RO-PSi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,6 +58,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="4SF-5C-TyU" secondAttribute="trailing" constant="20" id="1vv-fN-Wgk"/>
                                                 <constraint firstItem="4SF-5C-TyU" firstAttribute="centerY" secondItem="w8x-E3-xgM" secondAttribute="centerY" id="3ym-fm-QDM"/>
                                                 <constraint firstItem="Lpd-X3-qeN" firstAttribute="centerY" secondItem="w8x-E3-xgM" secondAttribute="centerY" id="bov-eq-1sA"/>
+                                                <constraint firstItem="4SF-5C-TyU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lpd-X3-qeN" secondAttribute="trailing" constant="8" symbolic="YES" id="q4Y-Hm-rSc"/>
                                                 <constraint firstItem="Lpd-X3-qeN" firstAttribute="leading" secondItem="w8x-E3-xgM" secondAttribute="leading" constant="20" id="uBJ-7t-gbT"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -84,6 +85,7 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="9v4-N4-vMq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QY5-jp-icJ" secondAttribute="trailing" constant="8" symbolic="YES" id="0BB-O6-r0P"/>
                                                 <constraint firstItem="9v4-N4-vMq" firstAttribute="centerY" secondItem="xfJ-Cq-Hu7" secondAttribute="centerY" id="UfJ-TF-vLX"/>
                                                 <constraint firstAttribute="trailing" secondItem="9v4-N4-vMq" secondAttribute="trailing" constant="20" id="aCo-8E-lXq"/>
                                             </constraints>
@@ -100,8 +102,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYW-Us-s9u">
-                                                    <rect key="frame" x="20" y="13" width="45.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Main Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYW-Us-s9u">
+                                                    <rect key="frame" x="20" y="13" width="110.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -120,6 +122,7 @@
                                             <constraints>
                                                 <constraint firstItem="QY2-Ny-Baj" firstAttribute="centerY" secondItem="HjS-u4-BFH" secondAttribute="centerY" id="HIX-qE-wxo"/>
                                                 <constraint firstAttribute="trailing" secondItem="QY2-Ny-Baj" secondAttribute="trailing" constant="20" id="RpD-jI-r89"/>
+                                                <constraint firstItem="QY2-Ny-Baj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pYW-Us-s9u" secondAttribute="trailing" constant="8" symbolic="YES" id="Spz-gD-oMm"/>
                                                 <constraint firstItem="pYW-Us-s9u" firstAttribute="centerY" secondItem="HjS-u4-BFH" secondAttribute="centerY" id="Vlm-Xs-0aW"/>
                                                 <constraint firstItem="pYW-Us-s9u" firstAttribute="leading" secondItem="HjS-u4-BFH" secondAttribute="leading" constant="20" id="mgX-MC-FOk"/>
                                             </constraints>
@@ -144,6 +147,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0hR-iU-eJr" secondAttribute="trailing" constant="20" symbolic="YES" id="83p-S7-0V0"/>
                                                 <constraint firstItem="0hR-iU-eJr" firstAttribute="leading" secondItem="4Mi-Ii-DzZ" secondAttribute="leading" constant="20" id="9IY-bA-5TN"/>
                                                 <constraint firstItem="0hR-iU-eJr" firstAttribute="centerY" secondItem="4Mi-Ii-DzZ" secondAttribute="centerY" id="Xu3-WT-O4b"/>
                                             </constraints>
@@ -166,6 +170,7 @@
                                             <constraints>
                                                 <constraint firstItem="tXW-yr-t5T" firstAttribute="leading" secondItem="swt-xs-0mx" secondAttribute="leading" constant="20" id="7qN-X8-k8h"/>
                                                 <constraint firstItem="tXW-yr-t5T" firstAttribute="centerY" secondItem="swt-xs-0mx" secondAttribute="centerY" id="bHG-Fj-5hA"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tXW-yr-t5T" secondAttribute="trailing" constant="20" symbolic="YES" id="gjP-5L-dSP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -185,6 +190,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ulG-cL-w7q" firstAttribute="leading" secondItem="ymG-YN-gFM" secondAttribute="leading" constant="20" id="d1z-bm-ZhI"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ulG-cL-w7q" secondAttribute="trailing" constant="20" symbolic="YES" id="grz-AR-WEx"/>
                                                 <constraint firstItem="ulG-cL-w7q" firstAttribute="centerY" secondItem="ymG-YN-gFM" secondAttribute="centerY" id="jB9-KM-Pad"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -209,6 +215,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="arp-bJ-J5J" firstAttribute="centerY" secondItem="ggG-fm-c2q" secondAttribute="centerY" id="cTr-te-00j"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="arp-bJ-J5J" secondAttribute="trailing" constant="20" symbolic="YES" id="r1D-kH-Q25"/>
                                                 <constraint firstItem="arp-bJ-J5J" firstAttribute="leading" secondItem="ggG-fm-c2q" secondAttribute="leading" constant="20" id="uzc-Hp-NiO"/>
                                             </constraints>
                                         </tableViewCellContentView>
