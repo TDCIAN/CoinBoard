@@ -12,21 +12,34 @@ class NetworkManager {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
         let param:RequestParam = .url(["fsyms":"BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC,BTG","tsyms":"USD,KRW"])
         guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else { return }
-        // MARK: 이거 responseJSON 대신 쓸 수 있는지 확인해보자 -> JSONSerialization 필요 없어지나?
-//        AF.request(coinListURL).responseData(completionHandler: )
-        AF.request(coinListURL).responseJSON { response in
+//        AF.request(coinListURL).responseJSON { response in
+//            switch response.result {
+//            case .success(let successData):
+//                let decoder = JSONDecoder()
+//                do {
+//                    let coinListRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
+//                    let coinListProcessedData = try decoder.decode(CoinListResponse.self, from: coinListRawData)
+//                    completion(.success(coinListProcessedData.raw.allCoins()))
+//                } catch let error {
+//                    print("--> coin list decoding error: \(error.localizedDescription)")
+//                }
+//            case .failure(let error):
+//                print("--> coin list error: \(error.localizedDescription)")
+//                completion(.failure(error))
+//            }
+//        }
+        AF.request(coinListURL).responseData { response in
             switch response.result {
             case .success(let successData):
                 let decoder = JSONDecoder()
                 do {
-                    let coinListRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
-                    let coinListProcessedData = try decoder.decode(CoinListResponse.self, from: coinListRawData)
+                    let coinListProcessedData = try decoder.decode(CoinListResponse.self, from: successData)
                     completion(.success(coinListProcessedData.raw.allCoins()))
-                } catch let error {
-                    print("--> coin list decoding error: \(error.localizedDescription)")
+                } catch {
+                    
                 }
             case .failure(let error):
-                print("--> coin list error: \(error.localizedDescription)")
+                print("==> coin list error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
         }
