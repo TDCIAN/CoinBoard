@@ -27,14 +27,7 @@ extension ChartListViewModel {
             switch result {
             case .success(let coins):
                 let tuples = zip(CoinType.allCases, coins).map { (key: $0, value: $1) }
-                tuples.forEach {
-                    print("그냥 튜플 코인 타입: \($0.key.rawValue), 시총: \($0.value.krw.marketCapitalization)")
-                }
-                
                 let sorted = tuples.sorted(by: { $0.value.krw.marketCapitalization > $1.value.krw.marketCapitalization })
-                sorted.forEach {
-                    print("소트된 튜플 코인 타입: \($0.key.rawValue), 시총: \($0.value.krw.marketCapitalization)")
-                }
                 self.coinInfoList = sorted
             case .failure(let error):
                 print("--> coin list error: \(error.localizedDescription)")
