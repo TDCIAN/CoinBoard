@@ -18,15 +18,18 @@ class OpenSourceViewController: UIViewController {
     var openSourceLicenseDataArray = [OpenSourceLicenseData]()
     var ARR_OPEN_SOURCE_NAME = [
         "Alamofire",
-        "Kingfisher"
+        "Kingfisher",
+        "Charts"
     ]
     var ARR_OPEN_SOURCE_ADDRESS = [
         "https://github.com/Alamofire/Alamofire",
-        "https://github.com/onevcat/Kingfisher"
+        "https://github.com/onevcat/Kingfisher",
+        "https://github.com/danielgindi/Charts"
     ]
     var ARR_LICENSE_TEXT = [
         "MIT license",
-        "MIT license"
+        "MIT license",
+        "Apache License"
     ]
 
     @IBOutlet weak var opensourceTableView: UITableView!

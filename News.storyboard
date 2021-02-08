@@ -81,7 +81,7 @@
         <scene sceneID="fcH-gI-UKO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VYN-Yq-CAt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="245-Td-Tk6"/>
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper.fill" catalog="system" id="245-Td-Tk6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="S7w-au-32r">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -98,7 +98,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="newspaper" catalog="system" width="128" height="108"/>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

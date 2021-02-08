@@ -148,7 +148,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-Px-aaI">
-                                                            <rect key="frame" x="200" y="22" width="11" height="16"/>
+                                                            <rect key="frame" x="200" y="21" width="11" height="18"/>
                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="srH-3N-935"/>
@@ -368,7 +368,7 @@
         <scene sceneID="2a7-nT-t35">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I2p-PA-lxs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chart" image="chart.bar" catalog="system" id="gKa-De-txB"/>
+                    <tabBarItem key="tabBarItem" title="Chart" image="chart.bar.xaxis" catalog="system" id="gKa-De-txB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="MAz-af-hRf">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -386,7 +386,7 @@
     </scenes>
     <resources>
         <image name="arrowtriangle.up.fill" catalog="system" width="128" height="124"/>
-        <image name="chart.bar" catalog="system" width="128" height="90"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

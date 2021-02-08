@@ -12,7 +12,7 @@
         <scene sceneID="B1t-Gb-QPe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eQ9-s4-Pay" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="MyE-U7-RYN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="MyE-U7-RYN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VCm-Ng-cmm">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -322,7 +322,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
