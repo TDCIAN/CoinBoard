@@ -10,7 +10,9 @@ import Alamofire
 
 class NetworkManager {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
-        let param:RequestParam = .url(["fsyms":"BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC,BTG","tsyms":"USD,KRW"])
+        let param:RequestParam =
+            .url(["fsyms":"BTC,ETH,ADA,XRP,LTC,LINK,XLM,BCH,BSV,EOS,TRX","tsyms":"USD,KRW"])
+//            .url(["fsyms":"BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC,BTG","tsyms":"USD,KRW"])        
         guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else { return }
         AF.request(coinListURL).responseData { response in
             switch response.result {
