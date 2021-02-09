@@ -68,7 +68,7 @@ extension ChartDetailViewController {
         currencyType.text = viewModel.currencyType
         coinTypeLabel.text = "\(viewModel.coinInfo.key)"
         let currentPrice = (viewModel.currencyType == "USD") ? viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
-        currentPriceLabel.text = String(format: "%.1f", currentPrice)
+        currentPriceLabel.text = currentPrice.toNumberFormatted()
     }
     
     private func moveHighlightBar(to button: UIButton) {
