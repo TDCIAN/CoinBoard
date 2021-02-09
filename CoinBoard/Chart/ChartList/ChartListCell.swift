@@ -28,7 +28,7 @@ class ChartListCell: UITableViewCell {
         currentStatusBox.backgroundColor = color
         coinName.text = coinType.rawValue
         currency.text = (currentCurrency == 0) ? "USD" : "KRW"
-        currentPrice.text = String(format: "%.2f", currencyType.price)
+        currentPrice.text = currencyType.price.toNumberFormatted()
         change24Hours.text = String(format: "%.1f", currencyType.changeLast24H)
         changePercent.text = String(format: "%.1f %%", currencyType.changePercentLast24H)
         change24Hours.textColor = color
@@ -39,3 +39,5 @@ class ChartListCell: UITableViewCell {
         currentStatusImageView.tintColor = color
     }
 }
+
+
