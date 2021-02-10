@@ -78,10 +78,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9v4-N4-vMq">
-                                                    <rect key="frame" x="283" y="6.5" width="111" height="32"/>
+                                                    <rect key="frame" x="297" y="6.5" width="97" height="32"/>
                                                     <segments>
-                                                        <segment title="Dollar"/>
-                                                        <segment title="Won"/>
+                                                        <segment title="USD"/>
+                                                        <segment title="KRW"/>
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
