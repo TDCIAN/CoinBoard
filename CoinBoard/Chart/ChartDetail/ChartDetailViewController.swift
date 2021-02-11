@@ -76,7 +76,7 @@ extension ChartDetailViewController {
     }
     
     private func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
-        print("rendering with \(period)")
+//        print("rendering with \(period)")
         
         // 데이터 가져오기
         guard let coinChartData = chartDatas.first(where: { $0.key == period })?.value else { return }
