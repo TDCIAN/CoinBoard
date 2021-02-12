@@ -43,7 +43,7 @@ extension ChartDetailViewModel {
             }
         }
         dispatchGroup.notify(queue: .main) {
-            print("--> 다 받았으니 차트를 렌더하자 -> \(self.chartDatas.count)")
+//            print("--> 다 받았으니 차트를 렌더하자 -> \(self.chartDatas.count)")
             self.changeHandler(self.chartDatas, self.selectedPeriod)
         }
     }
