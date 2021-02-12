@@ -18,19 +18,16 @@ class SettingsViewController: UITableViewController {
         setupView()
         addTarget()
     }
-    
     func setupView() {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
         currencySegmented.selectedSegmentIndex = ConfigManager.getInstance.currencyType
         periodSegmented.selectedSegmentIndex = ConfigManager.getInstance.periodType
     }
-    
     func addTarget() {
         darkModeSwitch.addTarget(self, action: #selector(handleDarkmodeSwitch(sender:)), for: .touchUpInside)
         currencySegmented.addTarget(self, action: #selector(handleCurrencySeg(sender:)), for: .valueChanged)
         periodSegmented.addTarget(self, action: #selector(handlePeriodSeg(sender:)), for: .valueChanged)
     }
-    
     @objc func handleDarkmodeSwitch(sender: UISwitch) {
         if sender.isOn {
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
@@ -42,7 +39,6 @@ class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: Constants.IS_DARK_MODE)
         }
     }
-    
     @objc func handleCurrencySeg(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -56,7 +52,6 @@ class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
         }
     }
-    
     @objc func handlePeriodSeg(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
