@@ -19,17 +19,20 @@ class OpenSourceViewController: UIViewController {
     var ARR_OPEN_SOURCE_NAME = [
         "Alamofire",
         "Kingfisher",
-        "Charts"
+        "Charts",
+        "SwiftyJSON"
     ]
     var ARR_OPEN_SOURCE_ADDRESS = [
         "https://github.com/Alamofire/Alamofire",
         "https://github.com/onevcat/Kingfisher",
-        "https://github.com/danielgindi/Charts"
+        "https://github.com/danielgindi/Charts",
+        "https://github.com/SwiftyJSON/SwiftyJSON"
     ]
     var ARR_LICENSE_TEXT = [
         "MIT license",
         "MIT license",
-        "Apache License"
+        "Apache License",
+        "MIT license"
     ]
 
     @IBOutlet weak var opensourceTableView: UITableView!
