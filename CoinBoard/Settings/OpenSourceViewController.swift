@@ -14,7 +14,6 @@ struct OpenSourceLicenseData {
 }
 
 class OpenSourceViewController: UIViewController {
-    
     var openSourceLicenseDataArray = [OpenSourceLicenseData]()
     var ARR_OPEN_SOURCE_NAME = [
         "Alamofire",
@@ -34,9 +33,6 @@ class OpenSourceViewController: UIViewController {
         "Apache License",
         "MIT license"
     ]
-
-    @IBOutlet weak var opensourceTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addLicenseData()
