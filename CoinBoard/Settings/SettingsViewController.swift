@@ -12,6 +12,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var currencySegmented: UISegmentedControl!
     @IBOutlet weak var periodSegmented: UISegmentedControl!
+    @IBOutlet weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,13 @@ class SettingsViewController: UITableViewController {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
         currencySegmented.selectedSegmentIndex = ConfigManager.getInstance.currencyType
         periodSegmented.selectedSegmentIndex = ConfigManager.getInstance.periodType
+        var version: String? {
+            guard let dictionary = Bundle.main.infoDictionary,
+                  let version = dictionary["CFBundleShortVersionString"] as? String else { return nil }
+            let versionBuild: String = version
+            return versionBuild
+        }
+        versionLabel.text = "Version \(version!)" 
     }
     func addTarget() {
         darkModeSwitch.addTarget(self, action: #selector(handleDarkmodeSwitch(sender:)), for: .touchUpInside)
