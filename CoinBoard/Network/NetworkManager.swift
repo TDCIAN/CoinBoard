@@ -35,7 +35,7 @@ class NetworkManager {
                                         "tsym":"USD",
                                         "limit":"\(period.limitParameter)",
                                         "aggregate":"\(period.aggregateParameter)"])
-        guard let coinChartDataURL = CoinChartDataRequest(period: .day, param: param).urlRequest()?.url else { return }
+        guard let coinChartDataURL = CoinChartDataRequest(period: period, param: param).urlRequest()?.url else { return }
         AF.request(coinChartDataURL).responseData { response in
             switch response.result {
             case .success(let successData):

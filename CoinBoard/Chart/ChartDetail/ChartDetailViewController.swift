@@ -155,6 +155,7 @@ extension ChartDetailViewController {
 
 extension ChartDetailViewController {
     private func xAxisDateFormatter(period: Period) -> IAxisValueFormatter {
+        print("CHART Detail - period: \(period)")
         switch period {
         case .day: return ChartXAxisDayFormatter()
         case .week: return ChartXAxisWeekFormatter()

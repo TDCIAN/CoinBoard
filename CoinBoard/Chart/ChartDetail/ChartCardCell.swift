@@ -76,7 +76,7 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         // Axis - xAxis
         let xAxis = chartViewForCardCell.xAxis
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = xAxisDateFormatter(period: .week)
+        xAxis.valueFormatter = xAxisDateFormatter(period: period)
         xAxis.drawGridLinesEnabled = false
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
@@ -109,6 +109,7 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     }
     
     func xAxisDateFormatter(period: Period) -> IAxisValueFormatter {
+        print("ChartCardCell - period: \(period)")
         switch period {
         case .day: return ChartXAxisDayFormatter()
         case .week: return ChartXAxisWeekFormatter()

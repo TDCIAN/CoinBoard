@@ -38,7 +38,7 @@ class ChartXAxisMonthFormatter: NSObject, IAxisValueFormatter {
 class ChartXAxisYearFormatter: NSObject, IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM"
+        formatter.dateFormat = "Y MMM"
         let month = formatter.string(from: Date(timeIntervalSince1970: value))
         return month
     }
