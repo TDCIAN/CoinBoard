@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsViewController: UITableViewController {
 
@@ -73,5 +74,15 @@ class SettingsViewController: UITableViewController {
         default:
             UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
         }
+    }
+    @IBAction func tapPrivacyPolicyButton(_ sender: UIButton) {
+        guard let privacyURL = URL(string: "https://app-privacy-policy.netlify.app/") else { return }
+        let config = SFSafariViewController.Configuration()
+        config.entersReaderIfAvailable = true
+        let safari = SFSafariViewController(url: privacyURL, configuration: config)
+        safari.preferredBarTintColor = UIColor.white
+        safari.preferredControlTintColor = UIColor.systemBlue
+        
+        present(safari, animated: true, completion: nil)
     }
 }

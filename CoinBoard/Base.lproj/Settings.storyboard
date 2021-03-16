@@ -189,6 +189,9 @@
                                                     <state key="normal" title="Privacy Policy">
                                                         <color key="titleColor" systemColor="systemGrayColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tapPrivacyPolicyButton:" destination="Yn5-vr-Wdj" eventType="touchUpInside" id="8IC-Ox-93C"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
