@@ -6,7 +6,6 @@
 //
 
 import SnapKit
-import Then
 import UIKit
 
 struct OpenSourceLicenseData {
@@ -19,13 +18,15 @@ class OpenSourceViewController: UIViewController {
     
     @IBOutlet weak var openSourceTitleLabel: UILabel!
     
-    lazy var openSourceTableView = UITableView().then {
-        $0.dataSource = self
-        $0.delegate = self
-        $0.register(OpenSourceLicenseTableViewCell.self, forCellReuseIdentifier: OpenSourceLicenseTableViewCell.reusableIdentifier)
-        $0.separatorStyle = .none
-        $0.backgroundColor = .tertiarySystemBackground
-    }
+    lazy var openSourceTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(OpenSourceLicenseTableViewCell.self, forCellReuseIdentifier: OpenSourceLicenseTableViewCell.reusableIdentifier)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .tertiarySystemBackground
+        return tableView
+    }()
     var openSourceLicenseDataArray: [OpenSourceLicenseData] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -45,16 +46,12 @@ class OpenSourceViewController: UIViewController {
         "https://github.com/Alamofire/Alamofire",
         "https://github.com/onevcat/Kingfisher",
         "https://github.com/danielgindi/Charts",
-        "https://github.com/SwiftyJSON/SwiftyJSON",
-        "https://github.com/SnapKit/SnapKit",
-        "https://github.com/devxoul/Then"
+        "https://github.com/SnapKit/SnapKit"
     ]
     var ARR_LICENSE_TEXT = [
         "MIT license",
         "MIT license",
         "Apache License",
-        "MIT license",
-        "MIT license",
         "MIT license"
     ]
     
@@ -101,21 +98,27 @@ extension OpenSourceViewController: UITableViewDelegate {
 }
 
 class OpenSourceLicenseTableViewCell: UITableViewCell {
-    let nameLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        $0.textAlignment = .left
-        $0.textColor = .label
-    }
-    let urlLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .thin)
-        $0.textAlignment = .left
-        $0.textColor = .secondaryLabel
-    }
-    let licenseLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 13, weight: .thin)
-        $0.textAlignment = .left
-        $0.textColor = .secondaryLabel
-    }
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.textAlignment = .left
+        label.textColor = .label
+        return label
+    }()
+    let urlLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .thin)
+        label.textAlignment = .left
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    let licenseLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13, weight: .thin)
+        label.textAlignment = .left
+        label.textColor = .secondaryLabel
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

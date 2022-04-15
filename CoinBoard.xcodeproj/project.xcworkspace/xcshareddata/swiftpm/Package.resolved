@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "63dfa86548c4e5d5c6fd6ed42f638e388cbce529",
+          "version": "5.6.0"
+        }
+      },
+      {
+        "package": "Charts",
+        "repositoryURL": "https://github.com/danielgindi/Charts.git",
+        "state": {
+          "branch": null,
+          "revision": "66546404a6739173b8e436ab6bc1f2897cd08594",
+          "version": "3.6.0"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": "master",
+          "revision": "bef0d09d2cab299fdeb2446de080df9f2b7dee91",
+          "version": null
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": "develop",
+          "revision": "07c5d1f6044701d97e94dc11157259e8811977be",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
