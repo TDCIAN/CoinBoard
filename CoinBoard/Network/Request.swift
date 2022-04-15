@@ -60,7 +60,6 @@ extension Request {
         case .body(let params):
             let bodyData = try? JSONSerialization.data(withJSONObject: params, options: [])
             if let data = bodyData {
-//                print("Request - httpBody: \(data)")
                 request.httpBody = data
             }
         case .url(let params):
@@ -68,9 +67,8 @@ extension Request {
             var components = URLComponents(string: path)
             components?.queryItems = queryParams
             request.url = components?.url
-//            print("Request - components: \(components), request.url: \(components?.url)")
         }
-        print("Request - return 되는 request: \(request)")
+        Log("Request - urlRequest: \(request)")
         return request
     }
 }

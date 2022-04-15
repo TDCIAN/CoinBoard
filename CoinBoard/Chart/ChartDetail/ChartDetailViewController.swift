@@ -68,7 +68,7 @@ extension ChartDetailViewController {
         currencyType.text = viewModel.currencyType
         coinTypeLabel.text = "\(viewModel.coinInfo.key)"
         let currentPrice = (viewModel.currencyType == "USD") ? viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
-        currentPriceLabel.text = currentPrice.toNumberFormatted()
+        currentPriceLabel.text = currentPrice?.toNumberFormatted()
     }
     
     private func moveHighlightBar(to button: UIButton) {
@@ -76,8 +76,6 @@ extension ChartDetailViewController {
     }
     
     private func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
-//        print("rendering with \(period)")
-        
         // 데이터 가져오기
         guard let coinChartData = chartDatas.first(where: { $0.key == period })?.value else { return }
         
@@ -155,7 +153,6 @@ extension ChartDetailViewController {
 
 extension ChartDetailViewController {
     private func xAxisDateFormatter(period: Period) -> IAxisValueFormatter {
-        print("CHART Detail - period: \(period)")
         switch period {
         case .day: return ChartXAxisDayFormatter()
         case .week: return ChartXAxisWeekFormatter()

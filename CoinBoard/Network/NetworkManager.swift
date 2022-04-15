@@ -10,8 +10,12 @@ import Alamofire
 
 class NetworkManager {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
+        let coinList = CoinType.allCases.map { $0.rawValue }.joined(separator: ",")
         let param:RequestParam =
-            .url(["fsyms":"BTC,ETH,ADA,XRP,LTC,LINK,XLM,BCH,BSV,EOS,TRX","tsyms":"USD,KRW"])
+            .url([
+                "fsyms": coinList,
+                "tsyms": "USD,KRW"
+            ])
         guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else { return }
         AF.request(coinListURL).responseData { response in
             switch response.result {
@@ -21,10 +25,10 @@ class NetworkManager {
                     let coinListProcessedData = try decoder.decode(CoinListResponse.self, from: successData)
                     completion(.success(coinListProcessedData.raw.allCoins()))
                 } catch {
-                    
+                    Log("==> coin list success catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("==> coin list catch error: \(error.localizedDescription)")
+                Log("==> coin list error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
         }
@@ -44,10 +48,10 @@ class NetworkManager {
                     let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: successData)
                     completion(.success(coinChartProcessedData.chartDatas))
                 } catch let error {
-                    print("==> coin chart catch error: \(error.localizedDescription)")
+                    Log("==> coin chart catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("==> coin chart error: \(error.localizedDescription)")
+                Log("==> coin chart error: \(error.localizedDescription)")
             }
         }
     }
@@ -67,10 +71,10 @@ class NetworkManager {
                     let newsListProcessedData = try decoder.decode(ArticleResponse.self, from: successData)
                     completion(.success(newsListProcessedData.articles))
                 } catch let error {
-                    print("==> news list catch error: \(error.localizedDescription)")
+                    Log("==> news list catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("==> news list error: \(error.localizedDescription)")
+                Log("==> news list error: \(error.localizedDescription)")
             }
         }
     }

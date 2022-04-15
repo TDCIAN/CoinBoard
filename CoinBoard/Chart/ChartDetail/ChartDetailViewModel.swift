@@ -35,10 +35,10 @@ extension ChartDetailViewModel {
                 dispatchGroup.leave()
                 switch result {
                 case .success(let coinChartDatas):
-                    print("--> coin chart data -> period: \(period): \(coinChartDatas.count)")
+                    Log("--> coin chart data -> period: \(period): \(coinChartDatas.count)")
                     self.chartDatas.append(CoinChartInfo(key: period, value: coinChartDatas))
                 case .failure(let error):
-                    print("--> coin chart error: \(error.localizedDescription)")
+                    Log("--> coin chart error: \(error.localizedDescription)")
                 }
             }
         }

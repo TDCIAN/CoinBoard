@@ -42,6 +42,7 @@
 		18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */; };
 		18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */; };
 		1E0B33812808F64C0008BF82 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0B33802808F64C0008BF82 /* SnapKit */; };
+		1E4E2F42280937FC00BCEAD0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F41280937FC00BCEAD0 /* Log.swift */; };
 		1EA4B7C52808F7210068ED69 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C42808F7210068ED69 /* Alamofire */; };
 		1EA4B7C82808F7660068ED69 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C72808F7660068ED69 /* Charts */; };
 		1EA4B7CB2808F7770068ED69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7CA2808F7770068ED69 /* Kingfisher */; };
@@ -84,6 +85,7 @@
 		18E5273225CCF15600D95067 /* ChartCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCell.swift; sourceTree = "<group>"; };
 		18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCellViewModel.swift; sourceTree = "<group>"; };
 		18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		1E4E2F41280937FC00BCEAD0 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				1855EABE25CFFF2900511317 /* Constants.swift */,
 				1855EAC425D0032500511317 /* ConfigManager.swift */,
+				1E4E2F41280937FC00BCEAD0 /* Log.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				1822F60C25CA35FA0085CDE9 /* SettingsViewController.swift in Sources */,
 				18E5273325CCF15600D95067 /* ChartCardCell.swift in Sources */,
 				18E5264025CB9A3900D95067 /* CoinListRequest.swift in Sources */,
+				1E4E2F42280937FC00BCEAD0 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

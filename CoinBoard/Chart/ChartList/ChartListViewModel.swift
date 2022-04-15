@@ -27,10 +27,10 @@ extension ChartListViewModel {
             switch result {
             case .success(let coins):
                 let tuples = zip(CoinType.allCases, coins).map { (key: $0, value: $1) }
-                let sorted = tuples.sorted(by: { $0.value.krw.marketCapitalization > $1.value.krw.marketCapitalization })
+                let sorted = tuples.sorted(by: { ($0.value.krw.marketCapitalization ?? 0.0) > ($1.value.krw.marketCapitalization ?? 0.0) })
                 self.coinInfoList = sorted
             case .failure(let error):
-                print("--> coin list error: \(error.localizedDescription)")
+                Log("--> coin list error: \(error.localizedDescription)")
             }
         }
     }

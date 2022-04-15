@@ -29,7 +29,7 @@ extension NewsListViewModel {
             case .success(let articles):
                 self.articles = articles
             case .failure(let error):
-                print("--> article error: \(error.localizedDescription)")
+                Log("--> article error: \(error.localizedDescription)")
             }
         }
     }

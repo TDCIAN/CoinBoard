@@ -44,11 +44,11 @@ extension ChartCardCellViewModel {
             case .success(let coinChartDatas):
                 self.chartDatas.append(CoinChartInfo(key: Period.week, value: coinChartDatas))
             case .failure(let error):
-                print("--> Card cell fetch data error: \(error.localizedDescription)")
+                Log("--> Card cell fetch data error: \(error.localizedDescription)")
             }
         }
         dispatchGroup.notify(queue: .main) {
-            print("--> Card cell에서 차트 렌더: \(self.chartDatas.count)")
+            Log("--> Card cell에서 차트 렌더: \(self.chartDatas.count)")
             self.changeHandler(self.chartDatas, self.selectedPeriod)
         }
     }

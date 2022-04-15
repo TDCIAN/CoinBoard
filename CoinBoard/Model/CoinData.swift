@@ -7,8 +7,6 @@
 
 import Foundation
 
-//https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,DASH,LTC,ETC,XRP,BCH,XMR,QTUM,ZEC&tsyms=USD
-
 enum CoinType: String, CaseIterable {
     case BTC
     case ETH
@@ -26,7 +24,7 @@ enum CoinType: String, CaseIterable {
     case WBTC
     case NEAR
     case MATIC
-    case CRO
+    case CRO = "COIN"
     
     case LTC
     case ATOM
@@ -129,22 +127,37 @@ struct RAWData: Codable {
         case bch = "BCH"
         case link = "LINK"
         
-        
-        case ada = "ADA"
-        case xrp = "XRP"
-        case ltc = "LTC"
-        case link = "LINK"
-        case xlm = "XLM"
-        case bch = "BCH"
-        case bsv = "BSV"
-        case eos = "EOS"
         case trx = "TRX"
+        case ftt = "FTT"
+        case leo = "LEO"
+        case etc = "ETC"
+        case algo = "ALGO"
+        
+        case xlm = "XLM"
+        case xmr = "XMR"
+        case vet = "VET"
+        case mana = "MANA"
+        case hbar = "HBAR"
+        
+        case icp = "ICP"
+        case fil = "FIL"
+        case ape = "APE"
+        case egld = "EGLD"
+        case icx = "ICX"
     }
 }
 
 extension RAWData {
     func allCoins() -> [Coin] {
-        return [btc, eth, ada, xrp, ltc, link, xlm, bch, bsv, eos, trx]
+        return [
+            btc, eth, bnb, xrp, sol,
+            ada, luna, avax, doge, dot,
+            shib, wbtc, near, matic, cro,
+            ltc, atom, uni, bch, link,
+            trx, ftt, leo, etc, algo,
+            xlm, xmr, vet, mana, hbar,
+            icp, fil, ape, egld, icx
+        ]
     }
 }
 
@@ -159,11 +172,11 @@ struct Coin: Codable {
 }
 
 struct CurrencyInfo: Codable {
-    let price: Double
-    let changeLast24H: Double
-    let changePercentLast24H: Double
-    let market: String
-    let marketCapitalization: Double
+    let price: Double?
+    let changeLast24H: Double?
+    let changePercentLast24H: Double?
+    let market: String?
+    let marketCapitalization: Double?
     
     enum CodingKeys: String, CodingKey {
         case price = "PRICE"

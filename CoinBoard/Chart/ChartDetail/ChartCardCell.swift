@@ -109,7 +109,6 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     }
     
     func xAxisDateFormatter(period: Period) -> IAxisValueFormatter {
-        print("ChartCardCell - period: \(period)")
         switch period {
         case .day: return ChartXAxisDayFormatter()
         case .week: return ChartXAxisWeekFormatter()
