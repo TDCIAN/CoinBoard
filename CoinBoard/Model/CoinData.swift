@@ -12,16 +12,46 @@ import Foundation
 enum CoinType: String, CaseIterable {
     case BTC
     case ETH
-    case ADA
+    case BNB
     case XRP
-    case LTC
-    case LINK
-    case XLM
-    case BCH
-    case BSV
-    case EOS
-    case TRX
+    case SOL
     
+    case ADA
+    case LUNA
+    case AVAX
+    case DOGE
+    case DOT
+    
+    case SHIB
+    case WBTC
+    case NEAR
+    case MATIC
+    case CRO
+    
+    case LTC
+    case ATOM
+    case UNI
+    case BCH
+    case LINK
+    
+    case TRX
+    case FTT
+    case LEO
+    case ETC
+    case ALGO
+    
+    case XLM
+    case XMR
+    case VET
+    case MANA
+    case HBAR
+    
+    case ICP
+    case FIL
+    case APE
+    case EGLD
+    case ICX
+
 }
 
 struct CoinListResponse: Codable {
@@ -34,19 +64,72 @@ struct CoinListResponse: Codable {
 struct RAWData: Codable {
     let btc: Coin
     let eth: Coin
-    let ada: Coin
+    let bnb: Coin
     let xrp: Coin
+    let sol: Coin
+    
+    let ada: Coin
+    let luna: Coin
+    let avax: Coin
+    let doge: Coin
+    let dot: Coin
+    
+    let shib: Coin
+    let wbtc: Coin
+    let near: Coin
+    let matic: Coin
+    let cro: Coin
+    
     let ltc: Coin
-    let link: Coin
-    let xlm: Coin
+    let atom: Coin
+    let uni: Coin
     let bch: Coin
-    let bsv: Coin
-    let eos: Coin
+    let link: Coin
+    
     let trx: Coin
+    let ftt: Coin
+    let leo: Coin
+    let etc: Coin
+    let algo: Coin
+    
+    let xlm: Coin
+    let xmr: Coin
+    let vet: Coin
+    let mana: Coin
+    let hbar: Coin
+    
+    let icp: Coin
+    let fil: Coin
+    let ape: Coin
+    let egld: Coin
+    let icx: Coin
     
     enum CodingKeys: String, CodingKey {
         case btc = "BTC"
         case eth = "ETH"
+        case bnb = "BNB"
+        case xrp = "XRP"
+        case sol = "SOL"
+        
+        case ada = "ADA"
+        case luna = "LUNA"
+        case avax = "AVAX"
+        case doge = "DOGE"
+        case dot = "DOT"
+        
+        case shib = "SHIB"
+        case wbtc = "WBTC"
+        case near = "NEAR"
+        case matic = "MATIC"
+        case cro = "COIN"
+        
+        case ltc = "LTC"
+        case atom = "ATOM"
+        case uni = "UNI"
+        case bch = "BCH"
+        case link = "LINK"
+        
+        
         case ada = "ADA"
         case xrp = "XRP"
         case ltc = "LTC"
