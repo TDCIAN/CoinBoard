@@ -5,52 +5,21 @@
 //  Created by APPLE on 2021/02/05.
 //
 
-import UIKit
+import Foundation
+import RxSwift
+import RxCocoa
 
 class NewsListViewModel {
-    typealias Handler = ([Article]) -> Void
-    var changeHandler: Handler
+    let disposeBag = DisposeBag()
     
-    var articles: [Article] = [] {
-        didSet {
-            changeHandler(articles)
+    let newsListCellData = BehaviorRelay<[NewsModel]>(value: [])
+    
+    let newsService = NewsService()
+    
+    func loadNews() {
+        newsService.fetchNow { [weak self] newsModels in
+            guard let self = self else { return }
+            self.newsListCellData.accept(newsModels)
         }
-    }
-    
-    init(changeHandler: @escaping Handler) {
-        self.changeHandler = changeHandler
-    }
-}
-
-extension NewsListViewModel {
-    func fetchData() {
-        NetworkManager.requestNewsList { result in
-            switch result {
-            case .success(let articles):
-                self.articles = articles
-            case .failure(let error):
-                Log("--> article error: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    var numberOfRowsInSection: Int {
-        return articles.count
-    }
-    
-    func cell(for indexPath: IndexPath, at tableView: UITableView) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: NewsListCell.identifier, for: indexPath
-        ) as? NewsListCell else {
-            return UITableViewCell()
-        }
-        let article = articles[indexPath.row]
-        cell.configCell(article: article)
-        return cell
-    }
-    
-    func article(at indexPath: IndexPath) -> Article {
-        let article = articles[indexPath.row]
-        return article
     }
 }

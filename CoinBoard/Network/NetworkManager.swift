@@ -20,7 +20,9 @@ protocol NetworkService {
     static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void)
 }
 
-class NetworkManager: NetworkService {
+//class NetworkManager: NetworkService {
+
+class NetworkManager {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
         let coinList = CoinType.allCases.map { $0.rawValue }.joined(separator: ",")
         let param:RequestParam =
@@ -75,26 +77,26 @@ class NetworkManager: NetworkService {
         }
     }
     
-    static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void) {
-        let param: RequestParam = .url([
-            "q": "crypto",
-            "apiKey": "6d61b0036eb24a718896dca571428bc2"
-        ])
-        guard let newsURL = NewsListRequest(param: param).urlRequest()?.url else { return }
-
-        AF.request(newsURL).responseData { response in
-            switch response.result {
-            case .success(let successData):
-                let decoder = JSONDecoder()
-                do {
-                    let newsListProcessedData = try decoder.decode(ArticleResponse.self, from: successData)
-                    completion(.success(newsListProcessedData.articles))
-                } catch let error {
-                    Log("==> news list catch error: \(error.localizedDescription)")
-                }
-            case .failure(let error):
-                Log("==> news list error: \(error.localizedDescription)")
-            }
-        }
-    }
+//    static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void) {
+//        let param: RequestParam = .url([
+//            "q": "crypto",
+//            "apiKey": "6d61b0036eb24a718896dca571428bc2"
+//        ])
+//        guard let newsURL = NewsListRequest(param: param).urlRequest()?.url else { return }
+//
+//        AF.request(newsURL).responseData { response in
+//            switch response.result {
+//            case .success(let successData):
+//                let decoder = JSONDecoder()
+//                do {
+//                    let newsListProcessedData = try decoder.decode(ArticleResponse.self, from: successData)
+//                    completion(.success(newsListProcessedData.articles))
+//                } catch let error {
+//                    Log("==> news list catch error: \(error.localizedDescription)")
+//                }
+//            case .failure(let error):
+//                Log("==> news list error: \(error.localizedDescription)")
+//            }
+//        }
+//    }
 }
