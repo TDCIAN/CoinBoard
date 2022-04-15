@@ -34,12 +34,19 @@ class NetworkManager {
         }
     }
     
-    static func requestCoinChartData(coinType: CoinType, period: Period, completion: @escaping (Result<[ChartData], Error>) -> Void) {
+    static func requestCoinChartData(
+        coinType: CoinType,
+        period: Period,
+        completion: @escaping (Result<[ChartData], Error>
+        ) -> Void) {
         let param: RequestParam = .url(["fsym":"\(coinType.rawValue)",
                                         "tsym":"USD",
                                         "limit":"\(period.limitParameter)",
                                         "aggregate":"\(period.aggregateParameter)"])
-        guard let coinChartDataURL = CoinChartDataRequest(period: period, param: param).urlRequest()?.url else { return }
+        guard let coinChartDataURL = CoinChartDataRequest(
+            period: period,
+            param: param
+        ).urlRequest()?.url else { return }
         AF.request(coinChartDataURL).responseData { response in
             switch response.result {
             case .success(let successData):

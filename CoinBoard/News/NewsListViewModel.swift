@@ -39,7 +39,10 @@ extension NewsListViewModel {
     }
     
     func cell(for indexPath: IndexPath, at tableView: UITableView) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListCell", for: indexPath) as? NewsListCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: NewsListCell.identifier, for: indexPath
+        ) as? NewsListCell else {
+            return UITableViewCell()
         }
         let article = articles[indexPath.row]
         cell.configCell(article: article)

@@ -67,7 +67,8 @@ extension ChartDetailViewController {
     private func updateCoinInfo(_ viewModel: ChartDetailViewModel) {
         currencyType.text = viewModel.currencyType
         coinTypeLabel.text = "\(viewModel.coinInfo.key)"
-        let currentPrice = (viewModel.currencyType == "USD") ? viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
+        let currentPrice = (viewModel.currencyType == "USD") ?
+        viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
         currentPriceLabel.text = currentPrice?.toNumberFormatted()
     }
     

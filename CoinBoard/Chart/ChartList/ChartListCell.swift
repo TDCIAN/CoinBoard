@@ -8,6 +8,7 @@
 import UIKit
 
 class ChartListCell: UITableViewCell {
+    static let identifier = "ChartListCell"
     @IBOutlet weak var currentStatusBox: UIView!
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var currentPrice: UILabel!
@@ -34,7 +35,8 @@ class ChartListCell: UITableViewCell {
         change24Hours.textColor = color
         changePercent.textColor = color
         
-        let statusImage = isUnderPerform ? UIImage(systemName: "arrowtriangle.down.fill") : UIImage(systemName: "arrowtriangle.up.fill")
+        let statusImage = isUnderPerform ?
+        UIImage(systemName: "arrowtriangle.down.fill") : UIImage(systemName: "arrowtriangle.up.fill")
         currentStatusImageView.image = statusImage
         currentStatusImageView.tintColor = color
     }

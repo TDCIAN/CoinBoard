@@ -44,8 +44,15 @@ extension ChartListViewController {
     
     private func showDetail(coinInfo: CoinInfo) {
         let storyboard = UIStoryboard(name: "Chart", bundle: .main)
-        if let detailVC = storyboard.instantiateViewController(withIdentifier: "ChartDetailViewController") as? ChartDetailViewController {
-            detailVC.viewModel = ChartDetailViewModel(coinInfo: coinInfo, chartDatas: [], selectedPeriod: .day, changeHandler: { _, _ in })
+        if let detailVC = storyboard.instantiateViewController(
+            withIdentifier: "ChartDetailViewController"
+        ) as? ChartDetailViewController {
+            detailVC.viewModel = ChartDetailViewModel(
+                coinInfo: coinInfo,
+                chartDatas: [],
+                selectedPeriod: .day,
+                changeHandler: { _, _ in }
+            )
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
@@ -56,11 +63,24 @@ extension ChartListViewController: UICollectionViewDataSource {
         return viewModel.numberOfCoinInfoList
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChartCardCell", for: indexPath) as? ChartCardCell else { return UICollectionViewCell() }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ChartCardCell.identifier,
+            for: indexPath
+        ) as? ChartCardCell else {
+            return UICollectionViewCell()
+        }
         let coinInfo = viewModel.coinInfo(at: indexPath)
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
-        cell.viewModel = ChartCardCellViewModel(coinInfo: coinInfo, chartDatas: [], periodType: customPeriod, changeHandler: { _, _ in })
+        cell.viewModel = ChartCardCellViewModel(
+            coinInfo: coinInfo,
+            chartDatas: [],
+            periodType: customPeriod,
+            changeHandler: { _, _ in }
+        )
         cell.viewModel.updateNotify { chartDatas, selectedPeriod in
             cell.renderChart(with: chartDatas, period: selectedPeriod)
         }
@@ -71,7 +91,11 @@ extension ChartListViewController: UICollectionViewDataSource {
 }
 
 extension ChartListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let width: CGFloat = collectionView.frame.width - 15 * 2
         let height: CGFloat = 300
         return CGSize(width: width, height: height)
@@ -85,15 +109,28 @@ extension ChartListViewController: UICollectionViewDelegateFlowLayout {
 extension ChartListViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         indexPaths.forEach {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChartCardCell", for: $0) as? ChartCardCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ChartCardCell.identifier,
+                for: $0
+            ) as? ChartCardCell
             let coinInfo = viewModel.coinInfo(at: $0)
             let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
-            cell?.viewModel = ChartCardCellViewModel(coinInfo: coinInfo, chartDatas: [], periodType: customPeriod, changeHandler: { _, _ in })
+            cell?.viewModel = ChartCardCellViewModel(
+                coinInfo: coinInfo,
+                chartDatas: [],
+                periodType: customPeriod,
+                changeHandler: { _, _ in }
+            )
             cell?.viewModel.updateNotify { chartDatas, selectedPeriod in
                 cell?.renderChart(with: chartDatas, period: selectedPeriod)
             }
             cell?.viewModel.fetchData()
-            cell?.updateCoinInfo(cell?.viewModel ?? ChartCardCellViewModel(coinInfo: coinInfo, chartDatas: [], periodType: customPeriod, changeHandler: { _, _ in }))
+            cell?.updateCoinInfo(cell?.viewModel ?? ChartCardCellViewModel(
+                coinInfo: coinInfo,
+                chartDatas: [],
+                periodType: customPeriod,
+                changeHandler: { _, _ in })
+            )
         }
     }
 }

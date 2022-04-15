@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 class NewsListCell: UITableViewCell {
+    static let identifier = "NewsListCell"
+    
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsDate: UILabel!

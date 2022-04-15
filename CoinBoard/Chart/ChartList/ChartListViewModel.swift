@@ -27,7 +27,9 @@ extension ChartListViewModel {
             switch result {
             case .success(let coins):
                 let tuples = zip(CoinType.allCases, coins).map { (key: $0, value: $1) }
-                let sorted = tuples.sorted(by: { ($0.value.krw.marketCapitalization ?? 0.0) > ($1.value.krw.marketCapitalization ?? 0.0) })
+                let sorted = tuples.sorted(by: {
+                    ($0.value.krw.marketCapitalization ?? 0.0) > ($1.value.krw.marketCapitalization ?? 0.0)
+                })
                 self.coinInfoList = sorted
             case .failure(let error):
                 Log("--> coin list error: \(error.localizedDescription)")
@@ -40,7 +42,11 @@ extension ChartListViewModel {
     }
     
     func cell(for indexPath: IndexPath, at tableView: UITableView) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChartListCell", for: indexPath) as? ChartListCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ChartListCell.identifier,
+            for: indexPath
+        ) as? ChartListCell else {
+            return UITableViewCell()
         }
         let coinInfo = coinInfoList[indexPath.row]
         cell.configCell(coinInfo: coinInfo)

@@ -9,6 +9,7 @@ import UIKit
 import Charts
 
 class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
+    static let identifier = "ChartCardCell"
     @IBOutlet weak var coinNameLabel: UILabel!
     @IBOutlet weak var lastChangeLabel: UILabel!
     @IBOutlet weak var chartViewForCardCell: LineChartView!
@@ -69,7 +70,11 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         
         let gradientColors = [startColor.cgColor, endColor.cgColor] as CFArray // Colors of the gradient
         let colorLocation: [CGFloat] = [1.0, 0.0] // Positioning of the gradient
-        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocation)
+        let gradient = CGGradient.init(
+            colorsSpace: CGColorSpaceCreateDeviceRGB(),
+            colors: gradientColors,
+            locations: colorLocation
+        )
         lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0) // Set the Gradient
         lineChartDataSet.drawFilledEnabled = true
         

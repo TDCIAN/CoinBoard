@@ -7,7 +7,12 @@
 
 import Foundation
 
-func Log<T>(_ object: @autoclosure () -> T, _ file: String = #file, _ function: String = #function, line: Int = #line) {
+func Log<T>(
+    _ object: @autoclosure () -> T,
+    _ file: String = #file,
+    _ function: String = #function,
+    line: Int = #line
+) {
 #if DEBUG
     let objValue = object()
     var stringRepresentation: String = ""
