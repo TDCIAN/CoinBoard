@@ -50,4 +50,3 @@ extension NewsViewController: UITableViewDelegate {
         present(safari, animated: true, completion: nil)
     }
 }
-

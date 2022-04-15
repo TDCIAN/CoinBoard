@@ -16,7 +16,12 @@ class ChartDetailViewModel {
     var selectedPeriod: Period = .day
     var currencyType: String = ""
     
-    init(coinInfo: CoinInfo, chartDatas: [CoinChartInfo], selectedPeriod: Period, changeHandler: @escaping Handler) {
+    init(
+        coinInfo: CoinInfo,
+        chartDatas: [CoinChartInfo],
+        selectedPeriod: Period,
+        changeHandler: @escaping Handler
+    ) {
         self.coinInfo = coinInfo
         self.chartDatas = chartDatas
         self.selectedPeriod = selectedPeriod

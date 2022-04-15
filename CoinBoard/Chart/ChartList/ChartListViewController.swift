@@ -114,4 +114,3 @@ extension ChartListViewController: UITableViewDelegate {
         showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
     }
 }
-

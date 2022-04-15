@@ -111,7 +111,11 @@ extension ChartDetailViewController {
         
         let gradientColors = [startColor.cgColor, endColor.cgColor] as CFArray // Colors of the gradient
         let colorLocations: [CGFloat] = [1.0, 0.0] // Positioning of the gradient
-        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
+        let gradient = CGGradient.init(
+            colorsSpace: CGColorSpaceCreateDeviceRGB(),
+            colors: gradientColors,
+            locations: colorLocations
+        )
         lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0) // Set the gradient
         lineChartDataSet.drawFilledEnabled = true // Draw the gradient
         

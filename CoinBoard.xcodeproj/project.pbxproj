@@ -86,6 +86,7 @@
 		18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCellViewModel.swift; sourceTree = "<group>"; };
 		18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		1E4E2F41280937FC00BCEAD0 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		1E4E2F4428093D7B00BCEAD0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +181,7 @@
 		186CAE5D25C8B7D00007EF9F = {
 			isa = PBXGroup;
 			children = (
+				1E4E2F4428093D7B00BCEAD0 /* .swiftlint.yml */,
 				186CAE6825C8B7D00007EF9F /* CoinBoard */,
 				186CAE6725C8B7D00007EF9F /* Products */,
 			);
@@ -244,6 +246,7 @@
 				186CAE6225C8B7D00007EF9F /* Sources */,
 				186CAE6325C8B7D00007EF9F /* Frameworks */,
 				186CAE6425C8B7D00007EF9F /* Resources */,
+				1E4E2F4328093D4C00BCEAD0 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -313,6 +316,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E4E2F4328093D4C00BCEAD0 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		186CAE6225C8B7D00007EF9F /* Sources */ = {

@@ -186,4 +186,3 @@ struct CurrencyInfo: Codable {
         case marketCapitalization = "MKTCAP"
     }
 }
-

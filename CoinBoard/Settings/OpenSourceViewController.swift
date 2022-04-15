@@ -22,7 +22,10 @@ class OpenSourceViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(OpenSourceLicenseTableViewCell.self, forCellReuseIdentifier: OpenSourceLicenseTableViewCell.reusableIdentifier)
+        tableView.register(
+            OpenSourceLicenseTableViewCell.self,
+            forCellReuseIdentifier: OpenSourceLicenseTableViewCell.identifier
+        )
         tableView.separatorStyle = .none
         tableView.backgroundColor = .tertiarySystemBackground
         return tableView
@@ -72,7 +75,13 @@ class OpenSourceViewController: UIViewController {
 
     func addLicenseData() {
         for i in 0..<ARR_OPEN_SOURCE_NAME.count {
-            openSourceLicenseDataArray.append(OpenSourceLicenseData(name: ARR_OPEN_SOURCE_NAME[i], address: ARR_OPEN_SOURCE_ADDRESS[i], license: ARR_LICENSE_TEXT[i]))
+            openSourceLicenseDataArray.append(
+                OpenSourceLicenseData(
+                    name: ARR_OPEN_SOURCE_NAME[i],
+                    address: ARR_OPEN_SOURCE_ADDRESS[i],
+                    license: ARR_LICENSE_TEXT[i]
+                )
+            )
         }
     }
 }
@@ -83,7 +92,12 @@ extension OpenSourceViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OpenSourceLicenseTableViewCell", for: indexPath) as? OpenSourceLicenseTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: OpenSourceLicenseTableViewCell.identifier,
+            for: indexPath
+        ) as? OpenSourceLicenseTableViewCell else {
+            return UITableViewCell()
+        }
         let openSourceInfo = openSourceLicenseDataArray[indexPath.row]
         cell.configCell(openSourceInfo: openSourceInfo)
         return cell
@@ -98,6 +112,8 @@ extension OpenSourceViewController: UITableViewDelegate {
 }
 
 class OpenSourceLicenseTableViewCell: UITableViewCell {
+    static let identifier = "OpenSourceLicenseTableViewCell"
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
@@ -152,7 +168,6 @@ class OpenSourceLicenseTableViewCell: UITableViewCell {
             $0.leading.equalTo(20)
         }
     }
-    
     
     func configCell(openSourceInfo: OpenSourceLicenseData) {
         nameLabel.text = openSourceInfo.name
