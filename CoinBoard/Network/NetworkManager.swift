@@ -53,29 +53,19 @@ class NetworkManager {
     }
     
     static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void) {
-        guard let newsURL = NewsListRequest().urlRequest()?.url else { return }
-//        AF.request(newsURL).responseJSON { response in
-//            switch response.result {
-//            case .success(let successData):
-//                let decoder = JSONDecoder()
-//                do {
-//                    let newsListRawData = try JSONSerialization.data(withJSONObject: successData, options: .prettyPrinted)
-//                    let newsListProcessedData = try decoder.decode([NewsResponse].self, from: newsListRawData)
-//                    completion(.success(newsListProcessedData.flatMap { $0.articleArray }))
-//                } catch let error {
-//                    print("--> news list decoding error: \(error.localizedDescription)")
-//                }
-//            case .failure(let error):
-//                print("--> news list error: \(error.localizedDescription)")
-//            }
-//        }
+        let param: RequestParam = .url([
+            "q": "crypto",
+            "apiKey": "6d61b0036eb24a718896dca571428bc2"
+        ])
+        guard let newsURL = NewsListRequest(param: param).urlRequest()?.url else { return }
+
         AF.request(newsURL).responseData { response in
             switch response.result {
             case .success(let successData):
                 let decoder = JSONDecoder()
                 do {
-                    let newsListProcessedData = try decoder.decode([NewsResponse].self, from: successData)
-                    completion(.success(newsListProcessedData.flatMap { $0.articleArray }))
+                    let newsListProcessedData = try decoder.decode(ArticleResponse.self, from: successData)
+                    completion(.success(newsListProcessedData.articles))
                 } catch let error {
                     print("==> news list catch error: \(error.localizedDescription)")
                 }

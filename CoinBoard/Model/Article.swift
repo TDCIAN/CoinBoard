@@ -7,24 +7,17 @@
 
 import Foundation
 
-struct NewsResponse: Codable {
-    let articleArray: [Article]
+struct ArticleResponse: Codable {
+    let status: String?
+    let totalResults: Int
+    let articles: [Article]
 }
 
 struct Article: Codable {
-    let title: String
-    let link: String
-    let date: String
-    let timestamp: TimeInterval
-    let description: String
-    let imageURL: String
-    
-    enum CodingKeys: String, CodingKey {
-        case title
-        case link
-        case date
-        case timestamp
-        case description
-        case imageURL = "imageUrl"
-    }
+    let author: String?
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+    let publishedAt: String?
 }

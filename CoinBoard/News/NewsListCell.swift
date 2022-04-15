@@ -14,11 +14,18 @@ class NewsListCell: UITableViewCell {
     @IBOutlet weak var newsDate: UILabel!
     
     func configCell(article: Article) {
-        let url = URL(string: article.imageURL)!
-        thumbnail.kf.setImage(with: url)
+        let url = URL(string: article.urlToImage ?? "")!
+        thumbnail.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
         newsTitle.text = article.title
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        newsDate.text = formatter.string(from: Date(timeIntervalSince1970: article.timestamp))
+        newsDate.text = article.publishedAt
+        var dateString: String {
+            let publishedAt = article.publishedAt ?? ""
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.timeZone = .autoupdatingCurrent
+            let publishedDate: Date = dateFormatter.date(from: publishedAt) ?? Date()
+            return dateFormatter.string(from: publishedDate)
+        }
+        newsDate.text = dateString
     }
 }

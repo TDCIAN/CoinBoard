@@ -40,7 +40,7 @@ extension NewsViewController: UITableViewDataSource {
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = viewModel.article(at: indexPath)
-        guard let articleURL = URL(string: article.link) else { return }
+        guard let articleURL = URL(string: article.url ?? "") else { return }
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         let safari = SFSafariViewController(url: articleURL, configuration: config)

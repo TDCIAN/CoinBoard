@@ -281,10 +281,10 @@
 			);
 			mainGroup = 186CAE5D25C8B7D00007EF9F;
 			packageReferences = (
-				1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
-				1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts.git" */,
-				1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts" */,
+				1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 186CAE6725C8B7D00007EF9F /* Products */;
 			projectDirPath = "";
@@ -571,7 +571,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -579,7 +579,7 @@
 				kind = branch;
 			};
 		};
-		1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -587,7 +587,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts.git" */ = {
+		1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -595,7 +595,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -608,22 +608,22 @@
 /* Begin XCSwiftPackageProductDependency section */
 		1E0B33802808F64C0008BF82 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = 1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		1EA4B7C42808F7210068ED69 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		1EA4B7C72808F7660068ED69 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts.git" */;
+			package = 1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 		1EA4B7CA2808F7770068ED69 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
