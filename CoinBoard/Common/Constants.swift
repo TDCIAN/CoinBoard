@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// change comment
 class Constants {
     static let IS_DARK_MODE = "IS_DARK_MODE"
     static let CURRENCY_TYPE = "CURRENCY_TYPE"
