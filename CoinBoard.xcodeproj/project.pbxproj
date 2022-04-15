@@ -43,6 +43,9 @@
 		18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */; };
 		1E0B33812808F64C0008BF82 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0B33802808F64C0008BF82 /* SnapKit */; };
 		1E4E2F42280937FC00BCEAD0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F41280937FC00BCEAD0 /* Log.swift */; };
+		1E4E2F472809418100BCEAD0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4E2F462809418100BCEAD0 /* RxCocoa */; };
+		1E4E2F492809418100BCEAD0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4E2F482809418100BCEAD0 /* RxRelay */; };
+		1E4E2F4B2809418100BCEAD0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4E2F4A2809418100BCEAD0 /* RxSwift */; };
 		1EA4B7C52808F7210068ED69 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C42808F7210068ED69 /* Alamofire */; };
 		1EA4B7C82808F7660068ED69 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C72808F7660068ED69 /* Charts */; };
 		1EA4B7CB2808F7770068ED69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7CA2808F7770068ED69 /* Kingfisher */; };
@@ -94,10 +97,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4E2F492809418100BCEAD0 /* RxRelay in Frameworks */,
 				1EA4B7C52808F7210068ED69 /* Alamofire in Frameworks */,
 				1E0B33812808F64C0008BF82 /* SnapKit in Frameworks */,
+				1E4E2F472809418100BCEAD0 /* RxCocoa in Frameworks */,
 				1EA4B7C82808F7660068ED69 /* Charts in Frameworks */,
 				1EA4B7CB2808F7770068ED69 /* Kingfisher in Frameworks */,
+				1E4E2F4B2809418100BCEAD0 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +264,9 @@
 				1EA4B7C42808F7210068ED69 /* Alamofire */,
 				1EA4B7C72808F7660068ED69 /* Charts */,
 				1EA4B7CA2808F7770068ED69 /* Kingfisher */,
+				1E4E2F462809418100BCEAD0 /* RxCocoa */,
+				1E4E2F482809418100BCEAD0 /* RxRelay */,
+				1E4E2F4A2809418100BCEAD0 /* RxSwift */,
 			);
 			productName = CoinBoard;
 			productReference = 186CAE6625C8B7D00007EF9F /* CoinBoard.app */;
@@ -291,6 +300,7 @@
 				1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				1EA4B7C62808F7660068ED69 /* XCRemoteSwiftPackageReference "Charts" */,
 				1EA4B7C92808F7770068ED69 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1E4E2F452809418100BCEAD0 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 186CAE6725C8B7D00007EF9F /* Products */;
 			projectDirPath = "";
@@ -607,6 +617,14 @@
 				kind = branch;
 			};
 		};
+		1E4E2F452809418100BCEAD0 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		1EA4B7C32808F7210068ED69 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -638,6 +656,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E0B337F2808F64C0008BF82 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		1E4E2F462809418100BCEAD0 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E4E2F452809418100BCEAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		1E4E2F482809418100BCEAD0 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E4E2F452809418100BCEAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		1E4E2F4A2809418100BCEAD0 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E4E2F452809418100BCEAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		1EA4B7C42808F7210068ED69 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

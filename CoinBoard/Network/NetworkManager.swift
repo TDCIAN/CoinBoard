@@ -8,7 +8,19 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+protocol NetworkService {
+    static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void)
+    
+    static func requestCoinChartData(
+        coinType: CoinType,
+        period: Period,
+        completion: @escaping (Result<[ChartData], Error>
+        ) -> Void)
+    
+    static func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void)
+}
+
+class NetworkManager: NetworkService {
     static func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
         let coinList = CoinType.allCases.map { $0.rawValue }.joined(separator: ",")
         let param:RequestParam =
