@@ -23,7 +23,6 @@
 		186CAE7625C8B7D10007EF9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7425C8B7D10007EF9F /* LaunchScreen.storyboard */; };
 		18A81A5525D2BBE300EDA378 /* Double + toNumberFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */; };
 		18E5261625CB8ED900D95067 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261525CB8ED900D95067 /* ChartData.swift */; };
-		18E5261B25CB8EE200D95067 /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261A25CB8EE100D95067 /* CoinData.swift */; };
 		18E5262025CB8EEA00D95067 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261F25CB8EEA00D95067 /* Period.swift */; };
 		18E5263625CB96EB00D95067 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263525CB96EB00D95067 /* Request.swift */; };
 		18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263A25CB99F200D95067 /* EndPoint.swift */; };
@@ -41,6 +40,11 @@
 		18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */; };
 		18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */; };
 		1E0B33812808F64C0008BF82 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0B33802808F64C0008BF82 /* SnapKit */; };
+		1E12FFA12809A0270050E727 /* CoinEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA02809A0270050E727 /* CoinEntity.swift */; };
+		1E12FFA32809A0DF0050E727 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA22809A0DF0050E727 /* CoinRepository.swift */; };
+		1E12FFA52809A17D0050E727 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA42809A17D0050E727 /* CoinModel.swift */; };
+		1E12FFA72809A21F0050E727 /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA62809A21F0050E727 /* CoinService.swift */; };
+		1E12FFA92809A4420050E727 /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA82809A4420050E727 /* CoinViewModel.swift */; };
 		1E4E2F42280937FC00BCEAD0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F41280937FC00BCEAD0 /* Log.swift */; };
 		1E4E2F472809418100BCEAD0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4E2F462809418100BCEAD0 /* RxCocoa */; };
 		1E4E2F492809418100BCEAD0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 1E4E2F482809418100BCEAD0 /* RxRelay */; };
@@ -73,7 +77,6 @@
 		186CAE7725C8B7D10007EF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + toNumberFormatted.swift"; sourceTree = "<group>"; };
 		18E5261525CB8ED900D95067 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
-		18E5261A25CB8EE100D95067 /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
 		18E5261F25CB8EEA00D95067 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		18E5263525CB96EB00D95067 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		18E5263A25CB99F200D95067 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -90,6 +93,11 @@
 		18E5273225CCF15600D95067 /* ChartCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCell.swift; sourceTree = "<group>"; };
 		18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCellViewModel.swift; sourceTree = "<group>"; };
 		18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		1E12FFA02809A0270050E727 /* CoinEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinEntity.swift; sourceTree = "<group>"; };
+		1E12FFA22809A0DF0050E727 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
+		1E12FFA42809A17D0050E727 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		1E12FFA62809A21F0050E727 /* CoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinService.swift; sourceTree = "<group>"; };
+		1E12FFA82809A4420050E727 /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
 		1E4E2F41280937FC00BCEAD0 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		1E4E2F4428093D7B00BCEAD0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		1E4E2F4C28095A4C00BCEAD0 /* NewsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntity.swift; sourceTree = "<group>"; };
@@ -128,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				18E5261525CB8ED900D95067 /* ChartData.swift */,
-				18E5261A25CB8EE100D95067 /* CoinData.swift */,
 				18E5261F25CB8EEA00D95067 /* Period.swift */,
 			);
 			path = Model;
@@ -236,6 +243,11 @@
 				1822F5FC25CA35D10085CDE9 /* ChartListViewController.swift */,
 				18E5271625CCE7BB00D95067 /* ChartListCell.swift */,
 				18E5271B25CCE85600D95067 /* ChartListViewModel.swift */,
+				1E12FFA82809A4420050E727 /* CoinViewModel.swift */,
+				1E12FFA62809A21F0050E727 /* CoinService.swift */,
+				1E12FFA42809A17D0050E727 /* CoinModel.swift */,
+				1E12FFA22809A0DF0050E727 /* CoinRepository.swift */,
+				1E12FFA02809A0270050E727 /* CoinEntity.swift */,
 			);
 			path = ChartList;
 			sourceTree = "<group>";
@@ -366,17 +378,21 @@
 				1855EABF25CFFF2900511317 /* Constants.swift in Sources */,
 				18E5264A25CB9AE400D95067 /* NewsListRequest.swift in Sources */,
 				18E5262025CB8EEA00D95067 /* Period.swift in Sources */,
+				1E12FFA32809A0DF0050E727 /* CoinRepository.swift in Sources */,
 				18E5271725CCE7BB00D95067 /* ChartListCell.swift in Sources */,
 				1E4E2F5328095AF800BCEAD0 /* NewsModel.swift in Sources */,
 				186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */,
+				1E12FFA92809A4420050E727 /* CoinViewModel.swift in Sources */,
 				18A81A5525D2BBE300EDA378 /* Double + toNumberFormatted.swift in Sources */,
 				18E5264F25CB9B3100D95067 /* NetworkManager.swift in Sources */,
+				1E12FFA72809A21F0050E727 /* CoinService.swift in Sources */,
 				1822F5FD25CA35D10085CDE9 /* ChartListViewController.swift in Sources */,
 				18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */,
 				18E5263625CB96EB00D95067 /* Request.swift in Sources */,
 				18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */,
 				1855EAC525D0032500511317 /* ConfigManager.swift in Sources */,
 				1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */,
+				1E12FFA12809A0270050E727 /* CoinEntity.swift in Sources */,
 				18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */,
 				1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */,
 				186CAE6C25C8B7D00007EF9F /* SceneDelegate.swift in Sources */,
@@ -384,8 +400,8 @@
 				18E5271C25CCE85600D95067 /* ChartListViewModel.swift in Sources */,
 				18E5264525CB9A8A00D95067 /* CoinChartDataRequest.swift in Sources */,
 				18E5272325CCEB8200D95067 /* ChartDetailViewModel.swift in Sources */,
+				1E12FFA52809A17D0050E727 /* CoinModel.swift in Sources */,
 				18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */,
-				18E5261B25CB8EE200D95067 /* CoinData.swift in Sources */,
 				18E5270D25CCE36700D95067 /* NewsListCell.swift in Sources */,
 				1E4E2F5128095AB900BCEAD0 /* NewsService.swift in Sources */,
 				18E5261625CB8ED900D95067 /* ChartData.swift in Sources */,

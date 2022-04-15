@@ -1,8 +1,8 @@
 //
-//  CoinData.swift
+//  CoinEntity.swift
 //  CoinBoard
 //
-//  Created by APPLE on 2021/02/04.
+//  Created by JeongminKim on 2022/04/15.
 //
 
 import Foundation

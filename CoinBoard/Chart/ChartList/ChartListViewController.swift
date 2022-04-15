@@ -7,42 +7,67 @@
 
 import UIKit
 import Charts
+import RxSwift
+import RxCocoa
 
 typealias CoinInfo = (key: CoinType, value: Coin)
 
 class ChartListViewController: UIViewController {
     
     @IBOutlet weak var chartCollectionView: UICollectionView!
-    @IBOutlet weak var chartTableView: UITableView!
-    @IBOutlet weak var chartTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var coinListTableView: UITableView!
+    @IBOutlet weak var coinListTableViewHeight: NSLayoutConstraint!
     
-    var viewModel: ChartListViewModel!
+    let disposeBag = DisposeBag()
+    let viewModel = CoinViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ChartListViewModel(changeHandler: { coinInfos in
-            DispatchQueue.main.async {
-                self.chartCollectionView.reloadData()
-                self.chartTableView.reloadData()
-                self.adjustTableViewHeight()
-            }
-        })
-        viewModel.fetchData()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         chartCollectionView.reloadData()
-        chartTableView.reloadData()
+        coinListTableView.reloadData()
+    }
+    
+    func bind() {
+        viewModel.loadCoinList()
+        
+        viewModel.coinListCellData
+            .asDriver(onErrorJustReturn: [])
+            .drive(
+                coinListTableView.rx.items(
+                    cellIdentifier: ChartListCell.identifier,
+                    cellType: ChartListCell.self
+                )
+            ) { _, data, cell in
+                cell.configCell(coinModel: data)
+                self.adjustTableViewHeight()
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.zip(
+            coinListTableView.rx.modelSelected(CoinModel.self),
+            coinListTableView.rx.itemSelected
+        )
+        .bind { [weak self] coinModel, indexPath in
+            guard let self = self else { return }
+            self.coinListTableView.deselectRow(at: indexPath, animated: true)
+            self.showDetail(coinInfo: coinModel)
+        }
+        .disposed(by: disposeBag)
     }
 }
 
 extension ChartListViewController {
     private func adjustTableViewHeight() {
-        chartTableViewHeight.constant = chartTableView.contentSize.height
+        coinListTableViewHeight.constant = coinListTableView.contentSize.height
     }
     
-    private func showDetail(coinInfo: CoinInfo) {
+//    private func showDetail(coinInfo: CoinInfo) {
+    private func showDetail(coinInfo: CoinModel) {
         let storyboard = UIStoryboard(name: "Chart", bundle: .main)
         if let detailVC = storyboard.instantiateViewController(
             withIdentifier: "ChartDetailViewController"
@@ -60,7 +85,8 @@ extension ChartListViewController {
 
 extension ChartListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfCoinInfoList
+//        return viewModel.numberOfCoinInfoList
+        return viewModel.coinListCellData.value.count
     }
     
     func collectionView(
@@ -73,7 +99,8 @@ extension ChartListViewController: UICollectionViewDataSource {
         ) as? ChartCardCell else {
             return UICollectionViewCell()
         }
-        let coinInfo = viewModel.coinInfo(at: indexPath)
+//        let coinInfo = viewModel.coinInfo(at: indexPath)
+        let coinInfo = viewModel.coinListCellData.value[indexPath.row]
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
@@ -102,7 +129,8 @@ extension ChartListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
+//        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
+        showDetail(coinInfo: viewModel.coinListCellData.value[indexPath.row])
     }
 }
 
@@ -113,7 +141,8 @@ extension ChartListViewController: UICollectionViewDataSourcePrefetching {
                 withReuseIdentifier: ChartCardCell.identifier,
                 for: $0
             ) as? ChartCardCell
-            let coinInfo = viewModel.coinInfo(at: $0)
+//            let coinInfo = viewModel.coinInfo(at: $0)
+            let coinInfo = viewModel.coinListCellData.value[$0.row]
             let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
             cell?.viewModel = ChartCardCellViewModel(
                 coinInfo: coinInfo,
@@ -132,22 +161,5 @@ extension ChartListViewController: UICollectionViewDataSourcePrefetching {
                 changeHandler: { _, _ in })
             )
         }
-    }
-}
-
-extension ChartListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCoinInfoList
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = viewModel.cell(for: indexPath, at: tableView)
-        return cell
-    }
-}
-
-extension ChartListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
     }
 }

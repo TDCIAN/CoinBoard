@@ -11,11 +11,12 @@ class ChartCardCellViewModel {
     typealias Handler = ([CoinChartInfo], Period) -> Void
     var changeHandler: Handler
     
-    var coinInfo: CoinInfo!
+//    var coinInfo: CoinInfo!
+    var coinInfo: CoinModel!
     var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
     
-    init(coinInfo: CoinInfo, chartDatas: [CoinChartInfo], periodType: Int, changeHandler: @escaping Handler) {
+    init(coinInfo: CoinModel, chartDatas: [CoinChartInfo], periodType: Int, changeHandler: @escaping Handler) {
         self.coinInfo = coinInfo
         self.chartDatas = chartDatas
         switch periodType {
