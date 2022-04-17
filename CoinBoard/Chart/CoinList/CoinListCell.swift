@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChartListCell: UITableViewCell {
+class CoinListCell: UITableViewCell {
     static let identifier = "ChartListCell"
     @IBOutlet weak var currentStatusBox: UIView!
     @IBOutlet weak var coinName: UILabel!

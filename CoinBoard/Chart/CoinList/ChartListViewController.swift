@@ -19,11 +19,12 @@ class ChartListViewController: UIViewController {
     @IBOutlet weak var coinListTableViewHeight: NSLayoutConstraint!
     
     let disposeBag = DisposeBag()
-    let viewModel = CoinViewModel()
+    let coinViewModel = CoinViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
+        bindChartList()
+        bindCoinList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,15 +33,19 @@ class ChartListViewController: UIViewController {
         coinListTableView.reloadData()
     }
     
-    func bind() {
-        viewModel.loadCoinList()
+    func bindChartList() {
+        // chartViewModel.loadChartList()
+    }
+    
+    func bindCoinList() {
+        coinViewModel.loadCoinList()
         
-        viewModel.coinListCellData
+        coinViewModel.coinListCellData
             .asDriver(onErrorJustReturn: [])
             .drive(
                 coinListTableView.rx.items(
-                    cellIdentifier: ChartListCell.identifier,
-                    cellType: ChartListCell.self
+                    cellIdentifier: CoinListCell.identifier,
+                    cellType: CoinListCell.self
                 )
             ) { _, data, cell in
                 cell.configCell(coinModel: data)
@@ -65,8 +70,7 @@ extension ChartListViewController {
     private func adjustTableViewHeight() {
         coinListTableViewHeight.constant = coinListTableView.contentSize.height
     }
-    
-//    private func showDetail(coinInfo: CoinInfo) {
+
     private func showDetail(coinInfo: CoinModel) {
         let storyboard = UIStoryboard(name: "Chart", bundle: .main)
         if let detailVC = storyboard.instantiateViewController(
@@ -86,7 +90,7 @@ extension ChartListViewController {
 extension ChartListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return viewModel.numberOfCoinInfoList
-        return viewModel.coinListCellData.value.count
+        return coinViewModel.coinListCellData.value.count
     }
     
     func collectionView(
@@ -100,7 +104,7 @@ extension ChartListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 //        let coinInfo = viewModel.coinInfo(at: indexPath)
-        let coinInfo = viewModel.coinListCellData.value[indexPath.row]
+        let coinInfo = coinViewModel.coinListCellData.value[indexPath.row]
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
@@ -130,7 +134,7 @@ extension ChartListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
-        showDetail(coinInfo: viewModel.coinListCellData.value[indexPath.row])
+        showDetail(coinInfo: coinViewModel.coinListCellData.value[indexPath.row])
     }
 }
 
@@ -142,7 +146,7 @@ extension ChartListViewController: UICollectionViewDataSourcePrefetching {
                 for: $0
             ) as? ChartCardCell
 //            let coinInfo = viewModel.coinInfo(at: $0)
-            let coinInfo = viewModel.coinListCellData.value[$0.row]
+            let coinInfo = coinViewModel.coinListCellData.value[$0.row]
             let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
             cell?.viewModel = ChartCardCellViewModel(
                 coinInfo: coinInfo,
