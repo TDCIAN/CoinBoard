@@ -13,7 +13,7 @@ class NewsService {
     
     var currentModel: [NewsModel] = []
     
-    func fetchNow(onCompleted: @escaping ([NewsModel]) -> Void) {
+    func fetchNewsList(onCompleted: @escaping ([NewsModel]) -> Void) {
         // Entity -> Model
         repository.requestNewsList { [weak self] result in
             guard let self = self else { return }
@@ -39,7 +39,7 @@ class NewsService {
                 self.currentModel = mappedArticles
                 onCompleted(self.currentModel)
             case .failure(let error):
-                Log("NewsService - fetchNow - error: \(error)")
+                Log("NewsService - fetchNewsList - error: \(error)")
             }
         }
     }

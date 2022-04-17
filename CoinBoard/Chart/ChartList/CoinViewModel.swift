@@ -17,7 +17,7 @@ class CoinViewModel {
     let coinService = CoinService()
     
     func loadCoinList() {
-        coinService.fetchNow { [weak self] coinModels in
+        coinService.fetchCoinList { [weak self] coinModels in
             guard let self = self else { return }
             self.coinListCellData.accept(coinModels)
         }

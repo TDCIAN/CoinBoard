@@ -12,7 +12,7 @@ class CoinService {
     
     var currentModel: [CoinModel] = []
     
-    func fetchNow(onCompleted: @escaping ([CoinModel]) -> Void) {
+    func fetchCoinList(onCompleted: @escaping ([CoinModel]) -> Void) {
         // Entity -> Model
         repository.requestCoinList { [weak self] result in
             guard let self = self else { return }
@@ -25,7 +25,7 @@ class CoinService {
                 self.currentModel = sorted
                 onCompleted(self.currentModel)
             case .failure(let error):
-                Log("CoinService - fetchNow - error: \(error)")
+                Log("CoinService - fetchCoinList - error: \(error)")
             }
         }
     }

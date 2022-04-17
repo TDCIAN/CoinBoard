@@ -17,7 +17,7 @@ class NewsListViewModel {
     let newsService = NewsService()
     
     func loadNews() {
-        newsService.fetchNow { [weak self] newsModels in
+        newsService.fetchNewsList { [weak self] newsModels in
             guard let self = self else { return }
             self.newsListCellData.accept(newsModels)
         }
