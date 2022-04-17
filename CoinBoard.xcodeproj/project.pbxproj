@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				18E5272125CCEB6200D95067 /* ChartDetail */,
-				18E5272025CCEB5300D95067 /* ChartList */,
+				18E5272025CCEB5300D95067 /* CoinList */,
 				1822F61025CA38080085CDE9 /* Chart.storyboard */,
 				18E5272D25CCEFF500D95067 /* ChartXAxisDayFormatter.swift */,
 			);
@@ -237,7 +237,7 @@
 			path = CoinBoard;
 			sourceTree = "<group>";
 		};
-		18E5272025CCEB5300D95067 /* ChartList */ = {
+		18E5272025CCEB5300D95067 /* CoinList */ = {
 			isa = PBXGroup;
 			children = (
 				1822F5FC25CA35D10085CDE9 /* ChartListViewController.swift */,
@@ -249,7 +249,7 @@
 				1E12FFA22809A0DF0050E727 /* CoinRepository.swift */,
 				1E12FFA02809A0270050E727 /* CoinEntity.swift */,
 			);
-			path = ChartList;
+			path = CoinList;
 			sourceTree = "<group>";
 		};
 		18E5272125CCEB6200D95067 /* ChartDetail */ = {
