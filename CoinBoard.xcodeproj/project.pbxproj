@@ -52,6 +52,11 @@
 		1E4E2F4F28095A7700BCEAD0 /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F4E28095A7700BCEAD0 /* NewsRepository.swift */; };
 		1E4E2F5128095AB900BCEAD0 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F5028095AB900BCEAD0 /* NewsService.swift */; };
 		1E4E2F5328095AF800BCEAD0 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E2F5228095AF800BCEAD0 /* NewsModel.swift */; };
+		1E560BF7280CDF3600A4CAD5 /* ChartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BF6280CDF3600A4CAD5 /* ChartEntity.swift */; };
+		1E560BF9280CDF6F00A4CAD5 /* ChartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */; };
+		1E560BFB280CDFAC00A4CAD5 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */; };
+		1E560BFD280CE05300A4CAD5 /* ChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFC280CE05300A4CAD5 /* ChartService.swift */; };
+		1E560BFF280CE5AC00A4CAD5 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */; };
 		1EA4B7C52808F7210068ED69 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C42808F7210068ED69 /* Alamofire */; };
 		1EA4B7C82808F7660068ED69 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C72808F7660068ED69 /* Charts */; };
 		1EA4B7CB2808F7770068ED69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7CA2808F7770068ED69 /* Kingfisher */; };
@@ -102,6 +107,11 @@
 		1E4E2F4E28095A7700BCEAD0 /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
 		1E4E2F5028095AB900BCEAD0 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		1E4E2F5228095AF800BCEAD0 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		1E560BF6280CDF3600A4CAD5 /* ChartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEntity.swift; sourceTree = "<group>"; };
+		1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRepository.swift; sourceTree = "<group>"; };
+		1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		1E560BFC280CE05300A4CAD5 /* ChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartService.swift; sourceTree = "<group>"; };
+		1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +266,11 @@
 				1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */,
 				18E5273225CCF15600D95067 /* ChartCardCell.swift */,
 				18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */,
+				1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */,
+				1E560BFC280CE05300A4CAD5 /* ChartService.swift */,
+				1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */,
+				1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */,
+				1E560BF6280CDF3600A4CAD5 /* ChartEntity.swift */,
 			);
 			path = ChartList;
 			sourceTree = "<group>";
@@ -376,9 +391,12 @@
 				18E5264A25CB9AE400D95067 /* NewsListRequest.swift in Sources */,
 				18E5262025CB8EEA00D95067 /* Period.swift in Sources */,
 				1E12FFA32809A0DF0050E727 /* CoinRepository.swift in Sources */,
+				1E560BFF280CE5AC00A4CAD5 /* ChartViewModel.swift in Sources */,
+				1E560BFD280CE05300A4CAD5 /* ChartService.swift in Sources */,
 				18E5271725CCE7BB00D95067 /* CoinListCell.swift in Sources */,
 				1E4E2F5328095AF800BCEAD0 /* NewsModel.swift in Sources */,
 				186CAE6A25C8B7D00007EF9F /* AppDelegate.swift in Sources */,
+				1E560BFB280CDFAC00A4CAD5 /* ChartModel.swift in Sources */,
 				1E12FFA92809A4420050E727 /* CoinViewModel.swift in Sources */,
 				18A81A5525D2BBE300EDA378 /* Double + toNumberFormatted.swift in Sources */,
 				18E5264F25CB9B3100D95067 /* NetworkManager.swift in Sources */,
@@ -389,6 +407,7 @@
 				18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */,
 				1855EAC525D0032500511317 /* ConfigManager.swift in Sources */,
 				1822F60225CA35DE0085CDE9 /* ChartDetailViewController.swift in Sources */,
+				1E560BF9280CDF6F00A4CAD5 /* ChartRepository.swift in Sources */,
 				1E12FFA12809A0270050E727 /* CoinEntity.swift in Sources */,
 				18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */,
 				1822F60725CA35F00085CDE9 /* NewsViewController.swift in Sources */,
@@ -398,6 +417,7 @@
 				18E5272325CCEB8200D95067 /* ChartDetailViewModel.swift in Sources */,
 				1E12FFA52809A17D0050E727 /* CoinModel.swift in Sources */,
 				18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */,
+				1E560BF7280CDF3600A4CAD5 /* ChartEntity.swift in Sources */,
 				18E5270D25CCE36700D95067 /* NewsListCell.swift in Sources */,
 				1E4E2F5128095AB900BCEAD0 /* NewsService.swift in Sources */,
 				18E5261625CB8ED900D95067 /* ChartData.swift in Sources */,

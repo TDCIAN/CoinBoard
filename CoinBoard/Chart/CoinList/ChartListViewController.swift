@@ -19,7 +19,25 @@ class ChartListViewController: UIViewController {
     @IBOutlet weak var coinListTableViewHeight: NSLayoutConstraint!
     
     let disposeBag = DisposeBag()
+    let chartViewModel = ChartViewModel()
     let coinViewModel = CoinViewModel()
+    
+    var customPeriod: Period {
+        let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
+        switch customPeriod {
+        case 0:
+            return .day
+        case 1:
+            return .week
+        case 2:
+            return .month
+        case 3:
+            return .year
+        default:
+            return .day
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +53,7 @@ class ChartListViewController: UIViewController {
     
     func bindChartList() {
         // chartViewModel.loadChartList()
+        chartViewModel.loadChartList(period: customPeriod)
     }
     
     func bindCoinList() {
