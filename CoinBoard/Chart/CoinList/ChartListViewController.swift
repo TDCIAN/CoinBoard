@@ -38,7 +38,6 @@ class ChartListViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindChartList()
@@ -53,7 +52,7 @@ class ChartListViewController: UIViewController {
     
     func bindChartList() {
         // chartViewModel.loadChartList()
-        chartViewModel.loadChartList(period: customPeriod)
+//        chartViewModel.loadChartList(period: customPeriod)
     }
     
     func bindCoinList() {
