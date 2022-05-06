@@ -7,8 +7,11 @@
 
 import UIKit
 import SafariServices
+import RxSwift
 
-class SettingsViewController: UITableViewController {
+final class SettingsViewController: UITableViewController {
+    
+    private let disposeBag = DisposeBag()
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var currencySegmented: UISegmentedControl!
@@ -19,6 +22,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         setupView()
         addTarget()
+        bind()
     }
     func setupView() {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
@@ -32,10 +36,32 @@ class SettingsViewController: UITableViewController {
         }
         versionLabel.text = "Version \(version!)" 
     }
+    
+    func bind() {
+        darkModeSwitch.rx.controlEvent(.valueChanged)
+            .withLatestFrom(darkModeSwitch.rx.value)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { isOn in
+                self.handleDarkmodeSwitch(isOn: isOn)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func addTarget() {
-        darkModeSwitch.addTarget(self, action: #selector(handleDarkmodeSwitch(sender:)), for: .touchUpInside)
+//        darkModeSwitch.addTarget(self, action: #selector(handleDarkmodeSwitch(sender:)), for: .touchUpInside)
         currencySegmented.addTarget(self, action: #selector(handleCurrencySeg(sender:)), for: .valueChanged)
         periodSegmented.addTarget(self, action: #selector(handlePeriodSeg(sender:)), for: .valueChanged)
+    }
+    private func handleDarkmodeSwitch(isOn: Bool) {
+        if isOn {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+            ConfigManager.getInstance.isDarkMode = true
+            UserDefaults.standard.set(true, forKey: Constants.IS_DARK_MODE)
+        } else {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+            ConfigManager.getInstance.isDarkMode = false
+            UserDefaults.standard.set(false, forKey: Constants.IS_DARK_MODE)
+        }
     }
     @objc func handleDarkmodeSwitch(sender: UISwitch) {
         if sender.isOn {
