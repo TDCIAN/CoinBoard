@@ -17,11 +17,11 @@ final class SettingsViewController: UITableViewController {
     @IBOutlet weak var currencySegmented: UISegmentedControl!
     @IBOutlet weak var periodSegmented: UISegmentedControl!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var privacyPolicyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        addTarget()
         bind()
     }
     func setupView() {
@@ -38,20 +38,23 @@ final class SettingsViewController: UITableViewController {
     }
     
     func bind() {
-        darkModeSwitch.rx.controlEvent(.valueChanged)
-            .withLatestFrom(darkModeSwitch.rx.value)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { isOn in
-                self.handleDarkmodeSwitch(isOn: isOn)
-            })
-            .disposed(by: disposeBag)
+        darkModeSwitch.rx.value.bind { isOn in
+            self.handleDarkmodeSwitch(isOn: isOn)
+        }.disposed(by: disposeBag)
+        
+        currencySegmented.rx.value.bind { index in
+            self.handleCurrencySeg(selectedIndex: index)
+        }.disposed(by: disposeBag)
+        
+        periodSegmented.rx.value.bind { index in
+            self.handlePeriodSeg(selectedIndex: index)
+        }.disposed(by: disposeBag)
+        
+        privacyPolicyButton.rx.tap.bind {
+            self.tapPrivacyPolicyButton()
+        }.disposed(by: disposeBag)
     }
-    
-    func addTarget() {
-//        darkModeSwitch.addTarget(self, action: #selector(handleDarkmodeSwitch(sender:)), for: .touchUpInside)
-        currencySegmented.addTarget(self, action: #selector(handleCurrencySeg(sender:)), for: .valueChanged)
-        periodSegmented.addTarget(self, action: #selector(handlePeriodSeg(sender:)), for: .valueChanged)
-    }
+
     private func handleDarkmodeSwitch(isOn: Bool) {
         if isOn {
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
@@ -63,19 +66,9 @@ final class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: Constants.IS_DARK_MODE)
         }
     }
-    @objc func handleDarkmodeSwitch(sender: UISwitch) {
-        if sender.isOn {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
-            ConfigManager.getInstance.isDarkMode = true
-            UserDefaults.standard.set(true, forKey: Constants.IS_DARK_MODE)
-        } else {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-            ConfigManager.getInstance.isDarkMode = false
-            UserDefaults.standard.set(false, forKey: Constants.IS_DARK_MODE)
-        }
-    }
-    @objc func handleCurrencySeg(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+
+    private func handleCurrencySeg(selectedIndex: Int) {
+        switch selectedIndex {
         case 0:
             ConfigManager.getInstance.currencyType = 0
             UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
@@ -87,8 +80,9 @@ final class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
         }
     }
-    @objc func handlePeriodSeg(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+    
+    private func handlePeriodSeg(selectedIndex: Int) {
+        switch selectedIndex {
         case 0:
             UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
         case 1:
@@ -101,7 +95,8 @@ final class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
         }
     }
-    @IBAction func tapPrivacyPolicyButton(_ sender: UIButton) {
+    
+    private func tapPrivacyPolicyButton() {
         guard let privacyURL = URL(string: "https://app-privacy-policy.netlify.app/") else { return }
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
