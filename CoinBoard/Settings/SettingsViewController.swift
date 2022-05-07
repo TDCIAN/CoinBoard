@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import SafariServices
 import RxSwift
 
 final class SettingsViewController: UITableViewController {
     
     private let disposeBag = DisposeBag()
-
+    let viewModel = SettingsViewModel()
+    
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var currencySegmented: UISegmentedControl!
     @IBOutlet weak var periodSegmented: UISegmentedControl!
@@ -29,7 +29,7 @@ final class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        bind()
+        bind(viewModel)
     }
     func setup() {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
@@ -38,73 +38,23 @@ final class SettingsViewController: UITableViewController {
         versionLabel.text = "Version \(version)"
     }
     
-    func bind() {
+    func bind(_ viewModel: SettingsViewModel) {
         darkModeSwitch.rx.value.bind { isOn in
-            self.handleDarkmodeSwitch(isOn: isOn)
+            viewModel.handleDarkmodeSwitch(isOn: isOn)
         }.disposed(by: disposeBag)
         
         currencySegmented.rx.value.bind { index in
-            self.handleCurrencySeg(selectedIndex: index)
+            viewModel.handleCurrencySeg(selectedIndex: index)
         }.disposed(by: disposeBag)
         
         periodSegmented.rx.value.bind { index in
-            self.handlePeriodSeg(selectedIndex: index)
+            viewModel.handlePeriodSeg(selectedIndex: index)
         }.disposed(by: disposeBag)
         
         privacyPolicyButton.rx.tap.bind {
-            self.tapPrivacyPolicyButton()
+            viewModel.tapPrivacyPolicyButton { safari in
+                self.present(safari, animated: true, completion: nil)
+            }
         }.disposed(by: disposeBag)
-    }
-
-    private func handleDarkmodeSwitch(isOn: Bool) {
-        if isOn {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
-            ConfigManager.getInstance.isDarkMode = true
-            UserDefaults.standard.set(true, forKey: Constants.IS_DARK_MODE)
-        } else {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-            ConfigManager.getInstance.isDarkMode = false
-            UserDefaults.standard.set(false, forKey: Constants.IS_DARK_MODE)
-        }
-    }
-
-    private func handleCurrencySeg(selectedIndex: Int) {
-        switch selectedIndex {
-        case 0:
-            ConfigManager.getInstance.currencyType = 0
-            UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
-        case 1:
-            ConfigManager.getInstance.currencyType = 1
-            UserDefaults.standard.set(1, forKey: Constants.CURRENCY_TYPE)
-        default:
-            ConfigManager.getInstance.currencyType = 0
-            UserDefaults.standard.set(0, forKey: Constants.CURRENCY_TYPE)
-        }
-    }
-    
-    private func handlePeriodSeg(selectedIndex: Int) {
-        switch selectedIndex {
-        case 0:
-            UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
-        case 1:
-            UserDefaults.standard.set(1, forKey: Constants.PERIOD_TYPE)
-        case 2:
-            UserDefaults.standard.set(2, forKey: Constants.PERIOD_TYPE)
-        case 3:
-            UserDefaults.standard.set(3, forKey: Constants.PERIOD_TYPE)
-        default:
-            UserDefaults.standard.set(0, forKey: Constants.PERIOD_TYPE)
-        }
-    }
-    
-    private func tapPrivacyPolicyButton() {
-        guard let privacyURL = URL(string: "https://app-privacy-policy.netlify.app/") else { return }
-        let config = SFSafariViewController.Configuration()
-        config.entersReaderIfAvailable = true
-        let safari = SFSafariViewController(url: privacyURL, configuration: config)
-        safari.preferredBarTintColor = UIColor.white
-        safari.preferredControlTintColor = UIColor.systemBlue
-        
-        present(safari, animated: true, completion: nil)
     }
 }
