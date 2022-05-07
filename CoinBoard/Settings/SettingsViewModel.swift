@@ -11,6 +11,29 @@ import RxSwift
 import RxCocoa
 
 class SettingsViewModel {
+    
+    var isDarkModeOn: Observable<Bool> {
+        return Observable<Bool>
+            .just(ConfigManager.getInstance.isDarkMode)
+    }
+    
+    var selectedCurrencyIndex: Observable<Int> {
+        return Observable<Int>
+            .just(ConfigManager.getInstance.currencyType)
+    }
+    
+    var selectedPeriodIndex: Observable<Int> {
+        return Observable<Int>
+            .just(ConfigManager.getInstance.periodType)
+    }
+    
+    var currentVersion: Observable<String> {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String else { return .empty() }
+        return Observable<String>
+            .just(version)
+    }
+    
     func handleDarkmodeSwitch(isOn: Bool) {
         if isOn {
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
