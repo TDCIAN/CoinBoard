@@ -19,22 +19,23 @@ final class SettingsViewController: UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var privacyPolicyButton: UIButton!
     
+    private var version: String {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+        let versionBuild: String = version
+        return versionBuild
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setup()
         bind()
     }
-    func setupView() {
+    func setup() {
         darkModeSwitch.isOn = ConfigManager.getInstance.isDarkMode
         currencySegmented.selectedSegmentIndex = ConfigManager.getInstance.currencyType
         periodSegmented.selectedSegmentIndex = ConfigManager.getInstance.periodType
-        var version: String? {
-            guard let dictionary = Bundle.main.infoDictionary,
-                  let version = dictionary["CFBundleShortVersionString"] as? String else { return nil }
-            let versionBuild: String = version
-            return versionBuild
-        }
-        versionLabel.text = "Version \(version!)" 
+        versionLabel.text = "Version \(version)"
     }
     
     func bind() {
