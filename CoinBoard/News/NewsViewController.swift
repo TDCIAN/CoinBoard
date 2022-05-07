@@ -45,32 +45,15 @@ class NewsViewController: UIViewController {
             guard let self = self else { return }
             self.newsTableView.deselectRow(at: indexPath, animated: true)
             guard let url = URL(string: news.urlToImage) else {
-                self.presentFailedToOpenAlert()
+                self.viewModel.presentFailedToOpenAlert { alert in
+                    self.present(alert, animated: true)
+                }
                 return
             }
-            self.open(url: url)
+            self.viewModel.openSafari(url: url) { safari in
+                self.present(safari, animated: true)
+            }
         }
         .disposed(by: disposeBag)
-    }
-    
-    private func open(url: URL) {
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true)
-    }
-    
-    private func presentFailedToOpenAlert() {
-        let alert = UIAlertController(
-            title: "Unable to Open",
-            message: "We were unable to open the article.",
-            preferredStyle: .alert
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: "Dismiss",
-                style: .cancel,
-                handler: nil
-            )
-        )
-        present(alert, animated: true)
     }
 }
