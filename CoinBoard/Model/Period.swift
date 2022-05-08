@@ -8,10 +8,10 @@
 import Foundation
 
 enum Period: String, CaseIterable {
-    case day
-    case week
-    case month
-    case year
+    case day = "24H"
+    case week = "1 Week"
+    case month = "1 Month"
+    case year = "1 Year"
     
     var urlPath: String {
         switch self {

@@ -7,8 +7,11 @@
 
 import UIKit
 import Charts
+import RxSwift
 
 class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
+    private let disposeBag = DisposeBag()
+    
     static let identifier = "ChartCardCell"
     @IBOutlet weak var coinNameLabel: UILabel!
     @IBOutlet weak var lastChangeLabel: UILabel!
@@ -16,24 +19,23 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     
     var viewModel: ChartCardCellViewModel!
     
-    func updateCoinInfo(_ viewModel: ChartCardCellViewModel) {
-        var periodString = "24H"
-        coinNameLabel.text = viewModel.coinInfo.key.rawValue
-        switch viewModel.selectedPeriod.rawValue {
-        case "day":
-            periodString = "24H"
-        case "week":
-            periodString = "1 Week"
-        case "month":
-            periodString = "1 Month"
-        case "year":
-            periodString = "1 Year"
-        default:
-            periodString = "24H"
-        }
-        lastChangeLabel.text = "Last \(periodString)"
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        bind(viewModel)
     }
     
+    func bind(_ viewModel: ChartCardCellViewModel) {
+        viewModel.coinName
+            .bind(to: coinNameLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.periodString
+            .bind(to: lastChangeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+    }
+    
+    // 차트 그리는 곳
     func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
         // 데이터 가져오기
         guard let coinChartData = chartDatas.first(where: { $0.key == Period.week })?.value else { return }

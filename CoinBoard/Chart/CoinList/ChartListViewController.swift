@@ -40,7 +40,6 @@ class ChartListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindChartList()
         bindCoinList()
     }
     
@@ -48,11 +47,6 @@ class ChartListViewController: UIViewController {
         super.viewWillAppear(animated)
         chartCollectionView.reloadData()
         coinListTableView.reloadData()
-    }
-    
-    func bindChartList() {
-        // chartViewModel.loadChartList()
-//        chartViewModel.loadChartList(period: customPeriod)
     }
     
     func bindCoinList() {
@@ -68,6 +62,7 @@ class ChartListViewController: UIViewController {
             ) { _, data, cell in
                 cell.configCell(coinModel: data)
                 self.adjustTableViewHeight()
+                self.chartCollectionView.reloadData()
             }
             .disposed(by: disposeBag)
         
@@ -107,7 +102,6 @@ extension ChartListViewController {
 
 extension ChartListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.numberOfCoinInfoList
         return coinViewModel.coinListCellData.value.count
     }
     
@@ -121,20 +115,20 @@ extension ChartListViewController: UICollectionViewDataSource {
         ) as? ChartCardCell else {
             return UICollectionViewCell()
         }
-//        let coinInfo = viewModel.coinInfo(at: indexPath)
         let coinInfo = coinViewModel.coinListCellData.value[indexPath.row]
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
+        print("셀: \(indexPath.row), 코인 이름: \(coinInfo.key.rawValue)")
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
             chartDatas: [],
             periodType: customPeriod,
             changeHandler: { _, _ in }
         )
+        
         cell.viewModel.updateNotify { chartDatas, selectedPeriod in
             cell.renderChart(with: chartDatas, period: selectedPeriod)
         }
-        cell.viewModel.fetchData()
-        cell.updateCoinInfo(cell.viewModel)
+        cell.viewModel.loadChartData()
         return cell
     }
 }
@@ -151,7 +145,6 @@ extension ChartListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        showDetail(coinInfo: viewModel.coinInfo(at: indexPath))
         showDetail(coinInfo: coinViewModel.coinListCellData.value[indexPath.row])
     }
 }
@@ -163,7 +156,6 @@ extension ChartListViewController: UICollectionViewDataSourcePrefetching {
                 withReuseIdentifier: ChartCardCell.identifier,
                 for: $0
             ) as? ChartCardCell
-//            let coinInfo = viewModel.coinInfo(at: $0)
             let coinInfo = coinViewModel.coinListCellData.value[$0.row]
             let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
             cell?.viewModel = ChartCardCellViewModel(
@@ -175,13 +167,7 @@ extension ChartListViewController: UICollectionViewDataSourcePrefetching {
             cell?.viewModel.updateNotify { chartDatas, selectedPeriod in
                 cell?.renderChart(with: chartDatas, period: selectedPeriod)
             }
-            cell?.viewModel.fetchData()
-            cell?.updateCoinInfo(cell?.viewModel ?? ChartCardCellViewModel(
-                coinInfo: coinInfo,
-                chartDatas: [],
-                periodType: customPeriod,
-                changeHandler: { _, _ in })
-            )
+            cell?.viewModel.loadChartData()
         }
     }
 }

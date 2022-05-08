@@ -5,9 +5,28 @@
 //  Created by APPLE on 2021/02/05.
 //
 
-import Foundation
+import UIKit
+import RxSwift
+import Charts
 
 class ChartCardCellViewModel {
+    private let disposeBag = DisposeBag()
+    
+    var coinName: Observable<String> {
+        return Observable<String>
+            .just(coinInfo.key.rawValue)
+    }
+    
+    var periodString: Observable<String> {
+        return Observable<String>
+            .just("Last \(selectedPeriod.rawValue)")
+    }
+    
+    var chartView: Observable<LineChartView> {
+        return Observable<LineChartView>
+            .just(LineChartView(frame: .zero))
+    }
+    
     typealias Handler = ([CoinChartInfo], Period) -> Void
     var changeHandler: Handler
     
@@ -16,7 +35,12 @@ class ChartCardCellViewModel {
     var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
     
-    init(coinInfo: CoinModel, chartDatas: [CoinChartInfo], periodType: Int, changeHandler: @escaping Handler) {
+    init(
+        coinInfo: CoinModel, // 콜렉션뷰에서 줌
+        chartDatas: [CoinChartInfo],
+        periodType: Int, // 콜렉션뷰에서 줌
+        changeHandler: @escaping Handler
+    ) {
         self.coinInfo = coinInfo
         self.chartDatas = chartDatas
         switch periodType {
@@ -36,7 +60,7 @@ class ChartCardCellViewModel {
 }
 
 extension ChartCardCellViewModel {
-    func fetchData() {
+    func loadChartData() {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         NetworkManager.requestCoinChartData(coinType: coinInfo.key, period: selectedPeriod) { result in
