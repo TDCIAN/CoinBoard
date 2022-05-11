@@ -28,7 +28,6 @@ class ChartViewModel {
                         case .success(let coinChartDatas):
                             DispatchQueue.main.async {
                                 self.chartDatas.accept(self.chartDatas.value + [ChartModel(key: period, value: coinChartDatas)])
-//                                self.chartDatas.accept([ChartModel(key: period, value: coinChartDatas)])
                                 Log("차트뷰모델 - 차트데이터 개수: \(self.chartDatas.value.count)")
                             }
                         case .failure(let error):

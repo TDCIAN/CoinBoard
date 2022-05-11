@@ -31,6 +31,8 @@ class ChartCardCellViewModel {
     var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
     
+    let chartService = ChartService()
+    
     init(
         coinInfo: CoinModel, // 콜렉션뷰에서 줌
         chartDatas: [CoinChartInfo],
@@ -53,6 +55,7 @@ class ChartCardCellViewModel {
         }
         
         loadChartData(coinType: self.coinInfo.key, period: self.selectedPeriod)
+        fetchChartList(coinType: self.coinInfo.key, period: self.selectedPeriod)
     }
 }
 
@@ -74,6 +77,12 @@ extension ChartCardCellViewModel {
                     Log("--> Card cell fetch data error: \(error.localizedDescription)")
                 }
             }
+        }
+    }
+    
+    func fetchChartList(coinType: CoinType, period: Period) {
+        chartService.fetchChartList(coinType: coinType, period: period) { chartModels in
+            print("차트모델스 카운트: \(chartModels.count)")
         }
     }
 }

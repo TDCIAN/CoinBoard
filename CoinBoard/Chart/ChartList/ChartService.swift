@@ -19,7 +19,7 @@ class ChartService {
                 guard let self = self else { return }
                 switch result {
                 case .success(let chartDatas):
-                    Log("차트데이터스: \(chartDatas)")
+                    Log("차트데이터스 이거 맞나: \(chartDatas)")
                 case .failure(let error):
                     Log("ChartService - fetchChartList - error: \(error)")
                 }
