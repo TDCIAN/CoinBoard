@@ -8,19 +8,11 @@
 import Foundation
 
 class ChartService {
-    let coinType: CoinType
-    let period: Period
-    
     let repository = ChartRepository()
     
     var chartModelList: [ChartModel] = []
     
-    init(coinType: CoinType, period: Period) {
-        self.coinType = coinType
-        self.period = period
-    }
-    
-    func fetchChartList(onCompleted: @escaping ([ChartModel]) -> Void) {
+    func fetchChartList(coinType: CoinType, period: Period, onCompleted: @escaping ([ChartModel]) -> Void) {
         repository.requestCoinChartData(
             coinType: coinType,
             period: period) { [weak self] result in

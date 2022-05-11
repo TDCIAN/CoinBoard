@@ -33,11 +33,17 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
             .bind(to: lastChangeLabel.rx.text)
             .disposed(by: disposeBag)
         
+        /*
+         CoinChartInfo -> (key: Period, value: [ChartData])와
+         ChartModel -> key: Period, value: [ChartData]은 같음
+         */
+        
         viewModel.chartViewSource
             .bind(onNext: { [weak self] chartViewSource in
                 print("차트카드셀 - 뷰모델.차트뷰소스")
                 self?.renderChart(with: chartViewSource.chartViewData, period: chartViewSource.period)
             }).disposed(by: disposeBag)
+        
     }
     
     // 차트 그리는 곳
@@ -118,8 +124,6 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         // Legend
         let legend = chartViewForCardCell.legend
         legend.enabled = false
-        
-        layoutIfNeeded()
     }
     
     func xAxisDateFormatter(period: Period) -> IAxisValueFormatter {

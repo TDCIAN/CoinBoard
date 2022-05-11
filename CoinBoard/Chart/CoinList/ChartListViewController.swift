@@ -121,18 +121,9 @@ extension ChartListViewController: UICollectionViewDataSource {
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
             chartDatas: [],
-            periodType: customPeriod,
-            changeHandler: { _, _ in }
+            periodType: customPeriod
         )
-        
-//        cell.viewModel.updateNotify { chartDatas, selectedPeriod in
-//            cell.renderChart(with: chartDatas, period: selectedPeriod)
-//        }
-//        cell.viewModel.loadChartData(coinType: <#CoinType#>, period: <#Period#>)
-        /* 실제 순서상으로는
-         1. 뷰모델이 coinInfo, customPeriod를 가지고 loadChartData
-         2. loadChartData가 완료되면 나온 결과물로 renderChart
-         */
+  
         return cell
     }
 }
@@ -150,29 +141,5 @@ extension ChartListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showDetail(coinInfo: coinViewModel.coinListCellData.value[indexPath.row])
-    }
-}
-
-extension ChartListViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach {
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ChartCardCell.identifier,
-                for: $0
-            ) as? ChartCardCell
-            let coinInfo = coinViewModel.coinListCellData.value[$0.row]
-            let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
-            print("프리패칭 - 셀: \($0), 코인 이름: \(coinInfo.key.rawValue)")
-            cell?.viewModel = ChartCardCellViewModel(
-                coinInfo: coinInfo,
-                chartDatas: [],
-                periodType: customPeriod,
-                changeHandler: { _, _ in }
-            )
-//            cell?.viewModel.updateNotify { chartDatas, selectedPeriod in
-//                cell?.renderChart(with: chartDatas, period: selectedPeriod)
-//            }
-//            cell?.viewModel.loadChartData()
-        }
     }
 }
