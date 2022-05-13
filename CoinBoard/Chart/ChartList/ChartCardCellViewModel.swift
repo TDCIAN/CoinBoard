@@ -66,6 +66,7 @@ extension ChartCardCellViewModel {
             NetworkManager.requestCoinChartData(coinType: coinType, period: period) { result in
                 switch result {
                 case .success(let coinChartDatas):
+                    print("코인차트데이터 퍼스트: \(coinChartDatas.first)")
                     self.chartDatas.append(CoinChartInfo(key: Period.week, value: coinChartDatas))
                     self.chartViewSource.accept(
                         ChartViewSource(
@@ -81,8 +82,9 @@ extension ChartCardCellViewModel {
     }
     
     func fetchChartList(coinType: CoinType, period: Period) {
+        print("차트카드셀뷰모델 - 페치차트리스트 - 코인타입: \(coinType), 피리어드: \(period)")
         chartService.fetchChartList(coinType: coinType, period: period) { chartModels in
-            print("차트모델스 카운트: \(chartModels.count)")
+            print("차트모델스 퍼스트: \(chartModels.first)")
         }
     }
 }
