@@ -120,7 +120,6 @@ extension ChartListViewController: UICollectionViewDataSource {
         print("셀: \(indexPath.row), 코인 이름: \(coinInfo.key.rawValue)")
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
-            chartDatas: [],
             periodType: customPeriod
         )
   

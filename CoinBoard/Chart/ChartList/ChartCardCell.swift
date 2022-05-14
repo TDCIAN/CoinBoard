@@ -47,10 +47,11 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     }
     
     // 차트 그리는 곳
-//    func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
     func renderChart(chartViewSource: ChartViewSource) {
         // 데이터 가져오기
-        guard let coinChartData = chartViewSource.chartModels.first(where: { $0.key == Period.week })?.value else { return }
+        guard let coinChartData = chartViewSource.chartModels.first(
+            where: { $0.key == Period.week }
+        )?.value else { return }
         print("차트카드셀 - 렌더차트 - coinChartData: \(coinChartData.count)")
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in

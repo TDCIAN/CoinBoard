@@ -28,19 +28,18 @@ class ChartCardCellViewModel {
     let chartViewSource = PublishRelay<ChartViewSource>()
     
     var coinInfo: CoinModel!
-    var chartDatas: [CoinChartInfo] = []
+//    var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
     
     let chartService = ChartService()
     
     init(
         coinInfo: CoinModel, // 콜렉션뷰에서 줌
-        chartDatas: [CoinChartInfo],
         periodType: Int // 콜렉션뷰에서 줌
     ) {
         print("차트카드셀뷰모델 - 이닛 - 코인인포: \(coinInfo.key), 피리어드타입: \(periodType)")
         self.coinInfo = coinInfo
-        self.chartDatas = chartDatas
+//        self.chartDatas = chartDatas
         switch periodType {
         case 0:
             self.selectedPeriod = .day
@@ -67,10 +66,11 @@ extension ChartCardCellViewModel {
                 switch result {
                 case .success(let coinChartDatas):
                     print("코인차트데이터 퍼스트: \(coinChartDatas.first)")
-                    self.chartDatas.append(CoinChartInfo(key: Period.week, value: coinChartDatas))
+                    var chartDatas: [CoinChartInfo] = []
+                    chartDatas.append(CoinChartInfo(key: Period.week, value: coinChartDatas))
                     self.chartViewSource.accept(
                         ChartViewSource(
-                            chartModels: self.chartDatas,
+                            chartModels: chartDatas,
                             period: self.selectedPeriod
                         )
                     )
