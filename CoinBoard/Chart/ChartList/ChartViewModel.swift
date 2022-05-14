@@ -10,7 +10,7 @@ import RxSwift
 import Charts
 import RxRelay
 
-class ChartCardCellViewModel {
+class ChartViewModel {
     private let disposeBag = DisposeBag()
 
     var coinName: Observable<String> {
@@ -52,7 +52,7 @@ class ChartCardCellViewModel {
     }
 }
 
-extension ChartCardCellViewModel {
+extension ChartViewModel {
     func fetchChartViewSource(coinType: CoinType, period: Period) {
         chartService.fetchChartList(coinType: coinType, period: period) { chartModels in
             self.chartViewSource.accept(

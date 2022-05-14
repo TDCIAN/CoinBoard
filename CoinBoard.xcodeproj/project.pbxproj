@@ -35,7 +35,7 @@
 		18E5272325CCEB8200D95067 /* ChartDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5272225CCEB8200D95067 /* ChartDetailViewModel.swift */; };
 		18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5272D25CCEFF500D95067 /* ChartXAxisDayFormatter.swift */; };
 		18E5273325CCF15600D95067 /* ChartCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273225CCF15600D95067 /* ChartCardCell.swift */; };
-		18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */; };
+		18E5273825CCF19600D95067 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5273725CCF19600D95067 /* ChartViewModel.swift */; };
 		18F0EE8025D09CC40049EE08 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */; };
 		1E0B33812808F64C0008BF82 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0B33802808F64C0008BF82 /* SnapKit */; };
 		1E12FFA12809A0270050E727 /* CoinEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E12FFA02809A0270050E727 /* CoinEntity.swift */; };
@@ -92,7 +92,7 @@
 		18E5272225CCEB8200D95067 /* ChartDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailViewModel.swift; sourceTree = "<group>"; };
 		18E5272D25CCEFF500D95067 /* ChartXAxisDayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisDayFormatter.swift; sourceTree = "<group>"; };
 		18E5273225CCF15600D95067 /* ChartCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCell.swift; sourceTree = "<group>"; };
-		18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardCellViewModel.swift; sourceTree = "<group>"; };
+		18E5273725CCF19600D95067 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		18F0EE7F25D09CC40049EE08 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		1E12FFA02809A0270050E727 /* CoinEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinEntity.swift; sourceTree = "<group>"; };
 		1E12FFA22809A0DF0050E727 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 				18E5272225CCEB8200D95067 /* ChartDetailViewModel.swift */,
 				1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */,
 				18E5273225CCF15600D95067 /* ChartCardCell.swift */,
-				18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */,
+				18E5273725CCF19600D95067 /* ChartViewModel.swift */,
 				1E560BFC280CE05300A4CAD5 /* ChartService.swift */,
 				1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */,
 				1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */,
@@ -399,7 +399,7 @@
 				18E5264F25CB9B3100D95067 /* NetworkManager.swift in Sources */,
 				1E12FFA72809A21F0050E727 /* CoinService.swift in Sources */,
 				1822F5FD25CA35D10085CDE9 /* ChartListViewController.swift in Sources */,
-				18E5273825CCF19600D95067 /* ChartCardCellViewModel.swift in Sources */,
+				18E5273825CCF19600D95067 /* ChartViewModel.swift in Sources */,
 				18E5263625CB96EB00D95067 /* Request.swift in Sources */,
 				18E5272E25CCEFF500D95067 /* ChartXAxisDayFormatter.swift in Sources */,
 				1855EAC525D0032500511317 /* ConfigManager.swift in Sources */,

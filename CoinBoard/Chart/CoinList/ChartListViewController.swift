@@ -114,7 +114,7 @@ extension ChartListViewController: UICollectionViewDataSource {
         }
         let coinInfo = coinViewModel.coinListCellData.value[indexPath.row]
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
-        cell.viewModel = ChartCardCellViewModel(
+        cell.viewModel = ChartViewModel(
             coinInfo: coinInfo,
             periodType: customPeriod
         )

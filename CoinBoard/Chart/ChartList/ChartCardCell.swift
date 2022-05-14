@@ -17,14 +17,14 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     @IBOutlet weak var lastChangeLabel: UILabel!
     @IBOutlet weak var chartViewForCardCell: LineChartView!
     
-    var viewModel: ChartCardCellViewModel!
+    var viewModel: ChartViewModel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
         bind(viewModel)
     }
     
-    func bind(_ viewModel: ChartCardCellViewModel) {
+    func bind(_ viewModel: ChartViewModel) {
         viewModel.coinName
             .bind(to: coinNameLabel.rx.text)
             .disposed(by: disposeBag)
