@@ -10,7 +10,7 @@ import RxSwift
 import Charts
 import RxRelay
 
-typealias ChartViewSource = (chartViewData: [CoinChartInfo], period: Period)
+typealias ChartViewSource = (chartModels: [CoinChartInfo], period: Period)
 
 class ChartCardCellViewModel {
     private let disposeBag = DisposeBag()
@@ -70,7 +70,7 @@ extension ChartCardCellViewModel {
                     self.chartDatas.append(CoinChartInfo(key: Period.week, value: coinChartDatas))
                     self.chartViewSource.accept(
                         ChartViewSource(
-                            chartViewData: self.chartDatas,
+                            chartModels: self.chartDatas,
                             period: self.selectedPeriod
                         )
                     )

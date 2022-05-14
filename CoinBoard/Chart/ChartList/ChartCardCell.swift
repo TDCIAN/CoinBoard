@@ -41,15 +41,16 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         viewModel.chartViewSource
             .bind(onNext: { [weak self] chartViewSource in
                 print("차트카드셀 - 뷰모델.차트뷰소스")
-                self?.renderChart(with: chartViewSource.chartViewData, period: chartViewSource.period)
+                self?.renderChart(chartViewSource: chartViewSource)
             }).disposed(by: disposeBag)
         
     }
     
     // 차트 그리는 곳
-    func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
+//    func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
+    func renderChart(chartViewSource: ChartViewSource) {
         // 데이터 가져오기
-        guard let coinChartData = chartDatas.first(where: { $0.key == Period.week })?.value else { return }
+        guard let coinChartData = chartViewSource.chartModels.first(where: { $0.key == Period.week })?.value else { return }
         print("차트카드셀 - 렌더차트 - coinChartData: \(coinChartData.count)")
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in
@@ -94,7 +95,7 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         // Axis - xAxis
         let xAxis = chartViewForCardCell.xAxis
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = xAxisDateFormatter(period: period)
+        xAxis.valueFormatter = xAxisDateFormatter(period: chartViewSource.period)
         xAxis.drawGridLinesEnabled = false
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
