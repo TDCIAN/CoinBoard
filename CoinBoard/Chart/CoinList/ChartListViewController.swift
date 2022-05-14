@@ -10,8 +10,6 @@ import Charts
 import RxSwift
 import RxCocoa
 
-typealias CoinInfo = (key: CoinType, value: Coin)
-
 class ChartListViewController: UIViewController {
     
     @IBOutlet weak var chartCollectionView: UICollectionView!
@@ -19,7 +17,6 @@ class ChartListViewController: UIViewController {
     @IBOutlet weak var coinListTableViewHeight: NSLayoutConstraint!
     
     let disposeBag = DisposeBag()
-    let chartViewModel = ChartViewModel()
     let coinViewModel = CoinViewModel()
     
     var customPeriod: Period {
@@ -117,12 +114,10 @@ extension ChartListViewController: UICollectionViewDataSource {
         }
         let coinInfo = coinViewModel.coinListCellData.value[indexPath.row]
         let customPeriod = UserDefaults.standard.integer(forKey: Constants.PERIOD_TYPE)
-        print("셀: \(indexPath.row), 코인 이름: \(coinInfo.key.rawValue)")
         cell.viewModel = ChartCardCellViewModel(
             coinInfo: coinInfo,
             periodType: customPeriod
         )
-  
         return cell
     }
 }

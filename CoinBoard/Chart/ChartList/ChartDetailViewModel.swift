@@ -10,15 +10,13 @@ import Foundation
 class ChartDetailViewModel {
     typealias Handler = ([CoinChartInfo], Period) -> Void
     var changeHandler: Handler
-    
-//    var coinInfo: CoinInfo!
+
     var coinInfo: CoinModel!
     var chartDatas: [CoinChartInfo] = []
     var selectedPeriod: Period = .day
     var currencyType: String = ""
     
     init(
-//        coinInfo: CoinInfo,
         coinInfo: CoinModel,
         chartDatas: [CoinChartInfo],
         selectedPeriod: Period,

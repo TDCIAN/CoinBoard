@@ -12,18 +12,17 @@ class ChartService {
     
     var chartModelList: [ChartModel] = []
     
-    func fetchChartList(coinType: CoinType, period: Period, onCompleted: @escaping ([ChartData]) -> Void) {
+    func fetchChartList(coinType: CoinType, period: Period, onCompleted: @escaping ([ChartModel]) -> Void) {
         repository.requestCoinChartData(
             coinType: coinType,
             period: period) { [weak self] result in
                 switch result {
                 case .success(let chartDatas):
-                    onCompleted(chartDatas)
-//                    Log("차트데이터스 이거 맞나: \(chartDatas)")
+                    self?.chartModelList.append(ChartModel(key: Period.week, value: chartDatas))
+                    onCompleted(self?.chartModelList ?? [])
                 case .failure(let error):
                     Log("ChartService - fetchChartList - error: \(error)")
                 }
             }
     }
-    
 }

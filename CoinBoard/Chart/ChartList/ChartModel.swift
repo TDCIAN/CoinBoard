@@ -6,7 +6,12 @@
 //
 
 import Foundation
-//typealias CoinChartInfo = (key: Period, value: [ChartData])
+
+struct ChartViewSource {
+    var period: Period
+    var chartModels: [ChartModel]
+}
+
 struct ChartModel {
     var key: Period
     var value: [ChartData]

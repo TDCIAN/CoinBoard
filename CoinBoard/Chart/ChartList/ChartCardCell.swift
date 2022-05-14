@@ -33,17 +33,10 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
             .bind(to: lastChangeLabel.rx.text)
             .disposed(by: disposeBag)
         
-        /*
-         CoinChartInfo -> (key: Period, value: [ChartData])와
-         ChartModel -> key: Period, value: [ChartData]은 같음
-         */
-        
         viewModel.chartViewSource
             .bind(onNext: { [weak self] chartViewSource in
-                print("차트카드셀 - 뷰모델.차트뷰소스")
                 self?.renderChart(chartViewSource: chartViewSource)
             }).disposed(by: disposeBag)
-        
     }
     
     // 차트 그리는 곳
@@ -52,7 +45,6 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
         guard let coinChartData = chartViewSource.chartModels.first(
             where: { $0.key == Period.week }
         )?.value else { return }
-        print("차트카드셀 - 렌더차트 - coinChartData: \(coinChartData.count)")
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in
             let time = chartData.time

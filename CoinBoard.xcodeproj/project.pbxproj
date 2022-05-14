@@ -22,7 +22,6 @@
 		186CAE7325C8B7D10007EF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7225C8B7D10007EF9F /* Assets.xcassets */; };
 		186CAE7625C8B7D10007EF9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7425C8B7D10007EF9F /* LaunchScreen.storyboard */; };
 		18A81A5525D2BBE300EDA378 /* Double + toNumberFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */; };
-		18E5261625CB8ED900D95067 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261525CB8ED900D95067 /* ChartData.swift */; };
 		18E5262025CB8EEA00D95067 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261F25CB8EEA00D95067 /* Period.swift */; };
 		18E5263625CB96EB00D95067 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263525CB96EB00D95067 /* Request.swift */; };
 		18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263A25CB99F200D95067 /* EndPoint.swift */; };
@@ -57,7 +56,6 @@
 		1E560BF9280CDF6F00A4CAD5 /* ChartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */; };
 		1E560BFB280CDFAC00A4CAD5 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */; };
 		1E560BFD280CE05300A4CAD5 /* ChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFC280CE05300A4CAD5 /* ChartService.swift */; };
-		1E560BFF280CE5AC00A4CAD5 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */; };
 		1EA4B7C52808F7210068ED69 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C42808F7210068ED69 /* Alamofire */; };
 		1EA4B7C82808F7660068ED69 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7C72808F7660068ED69 /* Charts */; };
 		1EA4B7CB2808F7770068ED69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA4B7CA2808F7770068ED69 /* Kingfisher */; };
@@ -81,7 +79,6 @@
 		186CAE7525C8B7D10007EF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186CAE7725C8B7D10007EF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + toNumberFormatted.swift"; sourceTree = "<group>"; };
-		18E5261525CB8ED900D95067 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		18E5261F25CB8EEA00D95067 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		18E5263525CB96EB00D95067 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		18E5263A25CB99F200D95067 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRepository.swift; sourceTree = "<group>"; };
 		1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		1E560BFC280CE05300A4CAD5 /* ChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartService.swift; sourceTree = "<group>"; };
-		1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +141,6 @@
 		1822F5F125CA34EB0085CDE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18E5261525CB8ED900D95067 /* ChartData.swift */,
 				18E5261F25CB8EEA00D95067 /* Period.swift */,
 			);
 			path = Model;
@@ -269,7 +264,6 @@
 				1822F60125CA35DE0085CDE9 /* ChartDetailViewController.swift */,
 				18E5273225CCF15600D95067 /* ChartCardCell.swift */,
 				18E5273725CCF19600D95067 /* ChartCardCellViewModel.swift */,
-				1E560BFE280CE5AC00A4CAD5 /* ChartViewModel.swift */,
 				1E560BFC280CE05300A4CAD5 /* ChartService.swift */,
 				1E560BFA280CDFAC00A4CAD5 /* ChartModel.swift */,
 				1E560BF8280CDF6F00A4CAD5 /* ChartRepository.swift */,
@@ -394,7 +388,6 @@
 				18E5264A25CB9AE400D95067 /* NewsListRequest.swift in Sources */,
 				18E5262025CB8EEA00D95067 /* Period.swift in Sources */,
 				1E12FFA32809A0DF0050E727 /* CoinRepository.swift in Sources */,
-				1E560BFF280CE5AC00A4CAD5 /* ChartViewModel.swift in Sources */,
 				1E560BFD280CE05300A4CAD5 /* ChartService.swift in Sources */,
 				18E5271725CCE7BB00D95067 /* CoinListCell.swift in Sources */,
 				1E4E2F5328095AF800BCEAD0 /* NewsModel.swift in Sources */,
@@ -424,7 +417,6 @@
 				1E560BF7280CDF3600A4CAD5 /* ChartEntity.swift in Sources */,
 				18E5270D25CCE36700D95067 /* NewsListCell.swift in Sources */,
 				1E4E2F5128095AB900BCEAD0 /* NewsService.swift in Sources */,
-				18E5261625CB8ED900D95067 /* ChartData.swift in Sources */,
 				1822F60C25CA35FA0085CDE9 /* SettingsViewController.swift in Sources */,
 				1E4E2F4D28095A4C00BCEAD0 /* NewsEntity.swift in Sources */,
 				18E5273325CCF15600D95067 /* ChartCardCell.swift in Sources */,
