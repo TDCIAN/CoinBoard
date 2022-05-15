@@ -23,7 +23,22 @@ class ChartViewModel {
             .just("Last \(selectedPeriod.rawValue)")
     }
     
+    var currencyType: Observable<String> {
+        let currentCurrency = UserDefaults.standard.integer(forKey: Constants.CURRENCY_TYPE)
+        return Observable<String>
+            .just((currentCurrency == 0) ? "USD" : "KRW")
+    }
+    
+    var currentPrice: Observable<String> {
+        let currentCurrency = UserDefaults.standard.integer(forKey: Constants.CURRENCY_TYPE)
+        let usdPrice: String = coinInfo.value.usd.price?.toNumberFormatted() ?? "-"
+        let krwPrice: String = coinInfo.value.krw.price?.toNumberFormatted() ?? "-"
+        return Observable<String>
+            .just((currentCurrency == 0) ? usdPrice : krwPrice)
+    }
+    
     let chartViewSource = PublishRelay<ChartViewSource>()
+    let chartViewSourceList = BehaviorRelay<[ChartViewSource]>(value: [])
     
     var coinInfo: CoinModel!
     var selectedPeriod: Period = .day
@@ -55,12 +70,28 @@ class ChartViewModel {
 extension ChartViewModel {
     func fetchChartViewSource(coinType: CoinType, period: Period) {
         chartService.fetchChartList(coinType: coinType, period: period) { chartModels in
+            print("차트뷰모델 - 페치차트뷰소스 - 코인타입: \(coinType), 피리어드: \(period), 차트모델카운트: \(chartModels.count)")
             self.chartViewSource.accept(
                 ChartViewSource(
                     period: self.selectedPeriod,
                     chartModels: chartModels
                 )
             )
+        }
+    }
+    
+    func fetchChartViewSourceList() {
+        Period.allCases.forEach { period in
+            chartService.fetchChartList(coinType: self.coinInfo.key, period: period) { chartModels in
+                var sourceListValue = self.chartViewSourceList.value
+                let newChartViewSource: ChartViewSource = ChartViewSource(
+                    period: period, chartModels: chartModels
+                )
+                print("차트뷰모델 - 페치차트뷰소스리스트 - 코인타입: \(self.coinInfo.key), 피리어드: \(period), 차트모델카운트: \(chartModels.count)")
+                
+                sourceListValue.append(newChartViewSource)
+                self.chartViewSourceList.accept(sourceListValue)
+            }
         }
     }
 }

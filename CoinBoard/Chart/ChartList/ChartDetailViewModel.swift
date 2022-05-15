@@ -8,17 +8,17 @@
 import Foundation
 
 class ChartDetailViewModel {
-    typealias Handler = ([CoinChartInfo], Period) -> Void
+    typealias Handler = ([ChartModel], Period) -> Void
     var changeHandler: Handler
 
     var coinInfo: CoinModel!
-    var chartDatas: [CoinChartInfo] = []
+    var chartDatas: [ChartModel] = []
     var selectedPeriod: Period = .day
     var currencyType: String = ""
     
     init(
         coinInfo: CoinModel,
-        chartDatas: [CoinChartInfo],
+        chartDatas: [ChartModel],
         selectedPeriod: Period,
         changeHandler: @escaping Handler
     ) {
@@ -41,7 +41,7 @@ extension ChartDetailViewModel {
                 switch result {
                 case .success(let coinChartDatas):
                     Log("--> coin chart data -> period: \(period): \(coinChartDatas.count)")
-                    self.chartDatas.append(CoinChartInfo(key: period, value: coinChartDatas))
+                    self.chartDatas.append(ChartModel(key: period, value: coinChartDatas))
                 case .failure(let error):
                     Log("--> coin chart error: \(error.localizedDescription)")
                 }

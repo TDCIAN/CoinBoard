@@ -7,9 +7,12 @@
 
 import UIKit
 import Charts
+import RxSwift
+import RxCocoa
 
-typealias CoinChartInfo = (key: Period, value: [ChartData])
+//typealias CoinChartInfo = (key: Period, value: [ChartData])
 class ChartDetailViewController: UIViewController {
+    private let disposeBag = DisposeBag()
 
     @IBOutlet weak var coinTypeLabel: UILabel!
     @IBOutlet weak var currentPriceLabel: UILabel!
@@ -18,67 +21,102 @@ class ChartDetailViewController: UIViewController {
     @IBOutlet weak var highlightBarLeading: NSLayoutConstraint!
     @IBOutlet weak var chartView: LineChartView!
     
-    var viewModel: ChartDetailViewModel!
+    @IBOutlet weak var dayButton: UIButton!
+    @IBOutlet weak var weekButton: UIButton!
+    @IBOutlet weak var monthButton: UIButton!
+    @IBOutlet weak var yearButton: UIButton!
+    
+//    var viewModel: ChartDetailViewModel!
+    
+    var chartViewModel: ChartViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind(chartViewModel)
+        chartViewModel.fetchChartViewSourceList()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateCoinInfo(viewModel)
+//        updateCoinInfo(viewModel)
         // -> changeHandler에 대한 업데이트
-        viewModel.updateNotify { chartDatas, selectedPeriod in
-            self.renderChart(with: chartDatas, period: selectedPeriod)
-        }
-        viewModel.fetchData()
-    }
-    @IBAction func clickDayButton(_ sender: UIButton) {
-        viewModel.selectedPeriod = .day
-        let datas = viewModel.chartDatas
-        let selectedPeriod = viewModel.selectedPeriod
-        renderChart(with: datas, period: selectedPeriod)
-        moveHighlightBar(to: sender)
-    }
-    @IBAction func clickWeekButton(_ sender: UIButton) {
-        viewModel.selectedPeriod = .week
-        let datas = viewModel.chartDatas
-        let selectedPeriod = viewModel.selectedPeriod
-        renderChart(with: datas, period: selectedPeriod)
-        moveHighlightBar(to: sender)
-    }
-    @IBAction func clickMonthButton(_ sender: UIButton) {
-        viewModel.selectedPeriod = .month
-        let datas = viewModel.chartDatas
-        let selectedPeriod = viewModel.selectedPeriod
-        renderChart(with: datas, period: selectedPeriod)
-        moveHighlightBar(to: sender)
-    }
-    @IBAction func clickYearButton(_ sender: UIButton) {
-        viewModel.selectedPeriod = .year
-        let datas = viewModel.chartDatas
-        let selectedPeriod = viewModel.selectedPeriod
-        renderChart(with: datas, period: selectedPeriod)
-        moveHighlightBar(to: sender)
+//        viewModel.updateNotify { chartDatas, selectedPeriod in
+//            self.renderChart(chartViewSource: chartDatas, selectedPeriod: selectedPeriod)
+//        }
+//        viewModel.fetchData()
     }
     
+    func bind(_ viewModel: ChartViewModel) {
+        viewModel.coinName
+            .bind(to: coinTypeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.currentPrice
+            .bind(to: currentPriceLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.currencyType
+            .bind(to: currencyType.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.chartViewSourceList
+            .subscribe(onNext: { [weak self] chartViewSourceList in
+                let dayChartData = chartViewSourceList.first { $0.period == .day }
+                print("바인드 - dayChartData - 카운트: \(dayChartData?.chartModels.count)")
+                self?.renderChart(chartModels: dayChartData?.chartModels ?? [], selectedPeriod: .day)
+            })
+            .disposed(by: disposeBag)
+        
+        dayButton.rx.tap.bind {
+            print("데이버튼 클릭함")
+            self.moveHighlightBar(to: self.dayButton)
+            guard let dayChartData = viewModel.chartViewSourceList.value.first(
+                where: { $0.period == Period.day }
+            ) else { return }
+            self.renderChart(chartModels: dayChartData.chartModels, selectedPeriod: .day)
+        }.disposed(by: disposeBag)
+        
+        weekButton.rx.tap.bind {
+            print("위크버튼 클릭함")
+            self.moveHighlightBar(to: self.weekButton)
+            guard let dayChartData = viewModel.chartViewSourceList.value.first(
+                where: { $0.period == Period.week }
+            ) else { return }
+            self.renderChart(chartModels: dayChartData.chartModels, selectedPeriod: .week)
+        }.disposed(by: disposeBag)
+        
+        monthButton.rx.tap.bind {
+            print("몬쓰버튼 클릭함")
+            self.moveHighlightBar(to: self.monthButton)
+            guard let dayChartData = viewModel.chartViewSourceList.value.first(
+                where: { $0.period == Period.month }
+            ) else { return }
+            self.renderChart(chartModels: dayChartData.chartModels, selectedPeriod: .month)
+        }.disposed(by: disposeBag)
+        
+        yearButton.rx.tap.bind {
+            print("이어버튼 클릭함 - 몇개있나: \(viewModel.chartViewSourceList.value.count)")
+            self.moveHighlightBar(to: self.yearButton)
+            guard let dayChartData = viewModel.chartViewSourceList.value.first(
+                where: { $0.period == Period.year }
+            ) else { return }
+            self.renderChart(chartModels: dayChartData.chartModels, selectedPeriod: .year)
+        }.disposed(by: disposeBag)
+    }
+
 }
 
 extension ChartDetailViewController {
-    private func updateCoinInfo(_ viewModel: ChartDetailViewModel) {
-        currencyType.text = viewModel.currencyType
-        coinTypeLabel.text = "\(viewModel.coinInfo.key)"
-        let currentPrice = (viewModel.currencyType == "USD") ?
-        viewModel.coinInfo.value.usd.price : viewModel.coinInfo.value.krw.price
-        currentPriceLabel.text = currentPrice?.toNumberFormatted()
-    }
-    
+
     private func moveHighlightBar(to button: UIButton) {
         self.highlightBarLeading.constant = button.frame.minX
     }
     
-    private func renderChart(with chartDatas: [CoinChartInfo], period: Period) {
+    private func renderChart(chartModels: [ChartModel], selectedPeriod: Period) {
+//    func renderChart(chartViewSource: ChartViewSource, selectedPeriod: Period) {
         // 데이터 가져오기
-        guard let coinChartData = chartDatas.first(where: { $0.key == period })?.value else { return }
+        guard let coinChartData = chartModels.first(
+            where: { $0.key == selectedPeriod }
+        )?.value else { return }
         
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in
@@ -123,7 +161,7 @@ extension ChartDetailViewController {
         // Axis - xAxis
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = xAxisDateFormatter(period: period)
+        xAxis.valueFormatter = xAxisDateFormatter(period: selectedPeriod)
         xAxis.drawGridLinesEnabled = false
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
