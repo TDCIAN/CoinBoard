@@ -87,7 +87,7 @@ extension ChartViewModel {
                 let newChartViewSource: ChartViewSource = ChartViewSource(
                     period: period, chartModels: chartModels
                 )
-                print("차트뷰모델 - 페치차트뷰소스리스트 - 코인타입: \(self.coinInfo.key), 피리어드: \(period), 차트모델카운트: \(chartModels.count)")
+                print("차트뷰모델 - 페치차트뷰소스리스트 - 코인타입: \(self.coinInfo.key), 피리어드: \(period), 차트뷰소스리스트 카운트: \(self.chartViewSourceList.value.count)")
                 
                 sourceListValue.append(newChartViewSource)
                 self.chartViewSourceList.accept(sourceListValue)

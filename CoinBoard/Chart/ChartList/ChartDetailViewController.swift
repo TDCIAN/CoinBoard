@@ -116,7 +116,10 @@ extension ChartDetailViewController {
         // 데이터 가져오기
         guard let coinChartData = chartModels.first(
             where: { $0.key == selectedPeriod }
-        )?.value else { return }
+        )?.value else {
+            print("못그리겠다 - 차트모델스카운트: \(chartModels.count), 셀렉티드피리어드: \(selectedPeriod), 조건식: \(chartModels.first(where: { $0.key == selectedPeriod })?.value)")
+            return
+        }
         
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in
