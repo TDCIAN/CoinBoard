@@ -18,7 +18,7 @@ class ChartService {
             period: period) { [weak self] result in
                 switch result {
                 case .success(let chartDatas):
-                    self?.chartModelList.append(ChartModel(key: Period.week, value: chartDatas))
+                    self?.chartModelList.append(ChartModel(key: period, value: chartDatas))
                     onCompleted(self?.chartModelList ?? [])
                 case .failure(let error):
                     Log("ChartService - fetchChartList - error: \(error)")

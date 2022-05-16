@@ -73,7 +73,8 @@ extension ChartViewModel {
             print("차트뷰모델 - 페치차트뷰소스 - 코인타입: \(coinType), 피리어드: \(period), 차트모델카운트: \(chartModels.count)")
             self.chartViewSource.accept(
                 ChartViewSource(
-                    period: self.selectedPeriod,
+//                    period: self.selectedPeriod,
+                    period: period,
                     chartModels: chartModels
                 )
             )

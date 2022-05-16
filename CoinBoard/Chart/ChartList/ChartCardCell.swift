@@ -43,7 +43,7 @@ class ChartCardCell: UICollectionViewCell, ChartViewDelegate {
     func renderChart(chartViewSource: ChartViewSource) {
         // 데이터 가져오기
         guard let coinChartData = chartViewSource.chartModels.first(
-            where: { $0.key == Period.week }
+            where: { $0.key == viewModel.selectedPeriod }
         )?.value else { return }
         // 차트에 필요한 차트데이터 가공
         let chartDataEntry = coinChartData.map { chartData -> ChartDataEntry in

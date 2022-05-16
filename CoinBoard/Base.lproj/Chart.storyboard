@@ -125,7 +125,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alV-w4-qbq">
-                                                            <rect key="frame" x="142" y="22" width="56" height="16"/>
+                                                            <rect key="frame" x="153" y="22" width="56" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -143,13 +143,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9D-aM-XIg">
-                                                            <rect key="frame" x="177" y="40" width="21" height="12"/>
+                                                            <rect key="frame" x="188" y="40" width="21" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-Px-aaI">
-                                                            <rect key="frame" x="200" y="22" width="11" height="16"/>
+                                                            <rect key="frame" x="211" y="22" width="11" height="16"/>
                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="srH-3N-935"/>
@@ -157,7 +157,7 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="alV-w4-qbq" secondAttribute="trailing" constant="216" id="0ia-gm-icK"/>
+                                                        <constraint firstAttribute="trailing" secondItem="alV-w4-qbq" secondAttribute="trailing" constant="205" id="0ia-gm-icK"/>
                                                         <constraint firstItem="k2q-lw-Ql1" firstAttribute="centerX" secondItem="SyQ-ly-Lp4" secondAttribute="centerX" id="1r1-nS-4GB"/>
                                                         <constraint firstAttribute="trailing" secondItem="kxA-7f-GjH" secondAttribute="trailing" constant="100" id="232-ZO-FDR"/>
                                                         <constraint firstItem="Y9D-aM-XIg" firstAttribute="trailing" secondItem="alV-w4-qbq" secondAttribute="trailing" id="4N3-oc-jKx"/>
