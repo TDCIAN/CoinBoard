@@ -8,7 +8,15 @@
 import Foundation
 import Alamofire
 
-class ChartRepository {
+protocol ChartNetwork: AnyObject {
+    func requestCoinChartData(
+        coinType: CoinType,
+        period: Period,
+        completion: @escaping (Result<[ChartData], Error>
+        ) -> Void)
+}
+
+class ChartRepository: ChartNetwork {
     func requestCoinChartData(
         coinType: CoinType,
         period: Period,

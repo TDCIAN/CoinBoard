@@ -8,7 +8,11 @@
 import Foundation
 import Alamofire
 
-class NewsRepository {
+protocol NewsNetwork: AnyObject {
+    func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void)
+}
+
+class NewsRepository: NewsNetwork {
     func requestNewsList(completion: @escaping (Result<[Article], Error>) -> Void) {
         let param: RequestParam = .url([
             "q": "crypto",

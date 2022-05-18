@@ -8,7 +8,11 @@
 import Foundation
 import Alamofire
 
-class CoinRepository {
+protocol CoinNetwork: AnyObject {
+    func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void)
+}
+
+class CoinRepository: CoinNetwork {
     func requestCoinList(completion: @escaping (Result<[Coin], Error>) -> Void) {
         let coinList = CoinType.allCases.map { $0.rawValue }.joined(separator: ",")
         let param:RequestParam =
