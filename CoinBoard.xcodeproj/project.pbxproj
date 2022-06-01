@@ -22,7 +22,6 @@
 		186CAE7325C8B7D10007EF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7225C8B7D10007EF9F /* Assets.xcassets */; };
 		186CAE7625C8B7D10007EF9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CAE7425C8B7D10007EF9F /* LaunchScreen.storyboard */; };
 		18A81A5525D2BBE300EDA378 /* Double + toNumberFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */; };
-		18E5262025CB8EEA00D95067 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5261F25CB8EEA00D95067 /* Period.swift */; };
 		18E5263625CB96EB00D95067 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263525CB96EB00D95067 /* Request.swift */; };
 		18E5263B25CB99F200D95067 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263A25CB99F200D95067 /* EndPoint.swift */; };
 		18E5264025CB9A3900D95067 /* CoinListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5263F25CB9A3900D95067 /* CoinListRequest.swift */; };
@@ -77,7 +76,6 @@
 		186CAE7525C8B7D10007EF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186CAE7725C8B7D10007EF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + toNumberFormatted.swift"; sourceTree = "<group>"; };
-		18E5261F25CB8EEA00D95067 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		18E5263525CB96EB00D95067 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		18E5263A25CB99F200D95067 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		18E5263F25CB9A3900D95067 /* CoinListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListRequest.swift; sourceTree = "<group>"; };
@@ -132,14 +130,6 @@
 				18A81A5425D2BBE300EDA378 /* Double + toNumberFormatted.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		1822F5F125CA34EB0085CDE9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				18E5261F25CB8EEA00D95067 /* Period.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1822F5F225CA34F10085CDE9 /* Network */ = {
@@ -221,13 +211,12 @@
 		186CAE6825C8B7D00007EF9F /* CoinBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1822F5F225CA34F10085CDE9 /* Network */,
 				1855EAC325D0031600511317 /* Common */,
+				1822F5F025CA34E10085CDE9 /* Extension */,
 				1822F5F525CA34FB0085CDE9 /* Chart */,
 				1822F5F425CA34F90085CDE9 /* News */,
 				1822F5F325CA34F60085CDE9 /* Settings */,
-				1822F5F225CA34F10085CDE9 /* Network */,
-				1822F5F125CA34EB0085CDE9 /* Model */,
-				1822F5F025CA34E10085CDE9 /* Extension */,
 				186CAE6925C8B7D00007EF9F /* AppDelegate.swift */,
 				186CAE6B25C8B7D00007EF9F /* SceneDelegate.swift */,
 				186CAE6F25C8B7D00007EF9F /* Main.storyboard */,
@@ -380,7 +369,6 @@
 				1E4E2F4F28095A7700BCEAD0 /* NewsRepository.swift in Sources */,
 				1855EABF25CFFF2900511317 /* Constants.swift in Sources */,
 				18E5264A25CB9AE400D95067 /* NewsListRequest.swift in Sources */,
-				18E5262025CB8EEA00D95067 /* Period.swift in Sources */,
 				1E12FFA32809A0DF0050E727 /* CoinRepository.swift in Sources */,
 				1E560BFD280CE05300A4CAD5 /* ChartService.swift in Sources */,
 				18E5271725CCE7BB00D95067 /* CoinListCell.swift in Sources */,

@@ -20,7 +20,10 @@ class CoinRepository: CoinNetwork {
                 "fsyms": coinList,
                 "tsyms": "USD,KRW"
             ])
-        guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else { return }
+        guard let coinListURL = CoinListRequest(param: param).urlRequest()?.url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
         AF.request(coinListURL).responseData { response in
             switch response.result {
             case .success(let successData):
@@ -29,11 +32,12 @@ class CoinRepository: CoinNetwork {
                     let coinListProcessedData = try decoder.decode(CoinListResponse.self, from: successData)
                     completion(.success(coinListProcessedData.raw.allCoins()))
                 } catch {
+                    completion(.failure(URLError(.cannotParseResponse)))
                     Log("==> coin list success catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
+                completion(.failure(URLError(.cannotLoadFromNetwork)))
                 Log("==> coin list error: \(error.localizedDescription)")
-                completion(.failure(error))
             }
         }
     }

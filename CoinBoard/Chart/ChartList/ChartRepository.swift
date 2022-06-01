@@ -29,7 +29,10 @@ class ChartRepository: ChartNetwork {
         guard let coinChartDataURL = CoinChartDataRequest(
             period: period,
             param: param
-        ).urlRequest()?.url else { return }
+        ).urlRequest()?.url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
         AF.request(coinChartDataURL).responseData { response in
             switch response.result {
             case .success(let successData):
@@ -38,9 +41,11 @@ class ChartRepository: ChartNetwork {
                     let coinChartProcessedData = try decoder.decode(ChartDataResponse.self, from: successData)
                     completion(.success(coinChartProcessedData.chartDatas))
                 } catch let error {
+                    completion(.failure(URLError(.cannotParseResponse)))
                     Log("==> coin chart catch error: \(error.localizedDescription)")
                 }
             case .failure(let error):
+                completion(.failure(URLError(.cannotLoadFromNetwork)))
                 Log("==> coin chart error: \(error.localizedDescription)")
             }
         }
